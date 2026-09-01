@@ -1,11 +1,16 @@
 <!doctype html>
-<html lang="de-CH">
+<html lang="de-CH" class="auth-locked">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Bücher-Brocky · Marktanalyse Schweiz 2026</title>
-  <meta name="description" content="Management-Pitch und vollständige Marktanalyse zur möglichen Übernahme der Bücher-Brocky AG.">
+  <title>Buchmarkt Analyse Schweiz 2026</title>
+  <meta name="description" content="Interaktive Analyse des Schweizer Buchmarkts 2026.">
+  <script>
+    if (sessionStorage.getItem('buchmarkt-auth') === 'ok') {
+      document.documentElement.classList.remove('auth-locked');
+    }
+  </script>
   <style>
     :root {
       --ink: #132238;
@@ -44,6 +49,67 @@
     a:hover { color: var(--navy); }
     button, input { font: inherit; }
     button { cursor: pointer; }
+
+    .auth-gate { display: none; }
+    html.auth-locked body > :not(.auth-gate) { display: none !important; }
+    html.auth-locked .auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(217,243,109,.18), transparent 26rem),
+        radial-gradient(circle at 15% 80%, rgba(47,181,167,.24), transparent 28rem),
+        linear-gradient(135deg, var(--navy), #102c42 72%, #173b4c);
+    }
+    .auth-card {
+      width: min(430px, 100%);
+      padding: 38px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 28px 80px rgba(0,0,0,.28);
+      backdrop-filter: blur(18px);
+    }
+    .auth-mark {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      background: var(--lime);
+      font-weight: 900;
+    }
+    .auth-card h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.15; }
+    .auth-card p { margin: 0 0 24px; color: #c4d1dc; }
+    .auth-card label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 800; }
+    .auth-card input {
+      width: 100%;
+      height: 50px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 12px;
+      color: #fff;
+      background: rgba(255,255,255,.10);
+      outline: none;
+    }
+    .auth-card input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(217,243,109,.16); }
+    .auth-card button {
+      width: 100%;
+      min-height: 50px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 12px;
+      color: var(--navy);
+      background: var(--lime);
+      font-weight: 900;
+    }
+    .auth-error { min-height: 22px; margin: 10px 0 0 !important; color: #ffb4ad !important; font-size: 13px; }
 
     .progress {
       position: fixed;
@@ -1067,6 +1133,17 @@
   </style>
 </head>
 <body>
+  <main class="auth-gate" aria-labelledby="auth-title">
+    <form class="auth-card" id="auth-form">
+      <div class="auth-mark">BB</div>
+      <h1 id="auth-title">Buchmarkt Analyse Schweiz 2026</h1>
+      <p>Bitte Passwort eingeben, um die Analyse zu öffnen.</p>
+      <label for="auth-password">Passwort</label>
+      <input id="auth-password" type="password" autocomplete="current-password" required autofocus>
+      <button type="submit">Analyse öffnen</button>
+      <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+    </form>
+  </main>
   <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
 
   <header class="topbar">
@@ -3270,6 +3347,33 @@
   <button class="back-top" id="back-top" type="button" aria-label="Nach oben">↑</button>
 
   <script>
+    (function () {
+      var form = document.getElementById('auth-form');
+      var input = document.getElementById('auth-password');
+      var error = document.getElementById('auth-error');
+      var expectedHash = 'd887564263d6f18e53a7dd81c3eb532bc7d8cb56f6175b360c4b063e2cd5dc94';
+
+      function hex(buffer) {
+        return Array.prototype.map.call(new Uint8Array(buffer), function (byte) {
+          return byte.toString(16).padStart(2, '0');
+        }).join('');
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value)).then(function (digest) {
+          if (hex(digest) !== expectedHash) {
+            error.textContent = 'Passwort nicht korrekt.';
+            input.select();
+            return;
+          }
+          sessionStorage.setItem('buchmarkt-auth', 'ok');
+          document.documentElement.classList.remove('auth-locked');
+          error.textContent = '';
+        });
+      });
+    }());
+
     (function () {
       var progress = document.getElementById('reading-progress');
       var backTop = document.getElementById('back-top');
