@@ -151,6 +151,7 @@
       color: #fff;
       text-decoration: none;
     }
+    .brand:hover { color: #fff; }
     .brand-mark {
       width: 38px;
       height: 38px;
@@ -175,7 +176,6 @@
       text-transform: uppercase;
       letter-spacing: .14em;
     }
-    .top-actions { display: flex; align-items: center; gap: 8px; }
     .btn {
       min-height: 40px;
       padding: 9px 14px;
@@ -284,17 +284,17 @@
     body:has(.page-view:target) #page-marktanalyse:not(:target) { display: none; }
     body:has(#full-analysis :target) #page-vollanalyse { display: block; }
     body:has(#full-analysis :target) #page-marktanalyse { display: none; }
-    body:has(#page-marktanalyse:target) [href="#page-marktanalyse"],
-    body:has(#page-vollanalyse:target) [href="#page-vollanalyse"],
-    body:has(#full-analysis :target) [href="#page-vollanalyse"],
-    body:has(#page-businessplan:target) [href="#page-businessplan"],
-    body:has(#page-ideen:target) [href="#page-ideen"],
-    body:has(#page-digitalisierung:target) [href="#page-digitalisierung"],
-    body:has(#page-organisation:target) [href="#page-organisation"] {
+    body:has(#page-marktanalyse:target) .main-nav [href="#page-marktanalyse"],
+    body:has(#page-vollanalyse:target) .main-nav [href="#page-vollanalyse"],
+    body:has(#full-analysis :target) .main-nav [href="#page-vollanalyse"],
+    body:has(#page-businessplan:target) .main-nav [href="#page-businessplan"],
+    body:has(#page-ideen:target) .main-nav [href="#page-ideen"],
+    body:has(#page-digitalisierung:target) .main-nav [href="#page-digitalisierung"],
+    body:has(#page-organisation:target) .main-nav [href="#page-organisation"] {
       color: var(--navy);
       background: var(--lime);
     }
-    body:not(:has(.page-view:target)):not(:has(#full-analysis :target)) [href="#page-marktanalyse"] {
+    body:not(:has(.page-view:target)):not(:has(#full-analysis :target)) .main-nav [href="#page-marktanalyse"] {
       color: var(--navy);
       background: var(--lime);
     }
@@ -1000,6 +1000,31 @@
     .module-card small { color: var(--teal-dark); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: .09em; }
     .module-card h2 { margin: 10px 0 9px; font-size: 22px; line-height: 1.15; letter-spacing: -.025em; }
     .module-card p { margin: 0; color: var(--ink-2); font-size: 14px; }
+    .analysis-end-cta {
+      display: flex;
+      justify-content: center;
+      margin: -34px 0 88px;
+    }
+    .analysis-end-cta a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 50px;
+      padding: 12px 20px;
+      border: 1px solid var(--navy);
+      border-radius: 14px;
+      color: #fff;
+      background: var(--navy);
+      box-shadow: 0 12px 34px rgba(13,27,42,.14);
+      text-decoration: none;
+      font-weight: 850;
+      transition: transform .16s ease, background .16s ease, color .16s ease;
+    }
+    .analysis-end-cta a:hover {
+      color: var(--navy);
+      background: var(--lime);
+      transform: translateY(-2px);
+    }
+
     .site-footer {
       padding: 24px 0;
       color: #8fa0b1;
@@ -1088,7 +1113,6 @@
       .topbar-inner { height: 64px; }
       .brand-title small { display: none; }
       .brand-title { font-size: 14px; }
-      .top-actions .print-button { display: none; }
       .hero-inner { padding: 72px 0 60px; gap: 36px; }
       .hero h1 { font-size: 50px; }
       .pitch { padding-top: 60px; }
@@ -1168,9 +1192,6 @@
           <a class="nav-link" href="#page-organisation">Organisation</a>
         </nav>
       </details>
-      <div class="top-actions">
-        <button class="btn print-button" type="button" onclick="window.print()">Drucken / PDF</button>
-      </div>
     </div>
   </header>
 
@@ -1466,6 +1487,10 @@
         </div>
       </article>
     </section>
+
+    <div class="analysis-end-cta">
+      <a href="#page-vollanalyse">Vollanalyse &amp; Quellen öffnen →</a>
+    </div>
   </main>
   </div>
 
