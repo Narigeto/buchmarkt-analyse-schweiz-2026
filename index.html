@@ -143,6 +143,30 @@
       justify-content: space-between;
       gap: 20px;
     }
+    .mobile-section-nav { display: none; }
+    .mobile-section-nav-inner {
+      width: 100%;
+      display: flex;
+      gap: 7px;
+      padding: 9px 18px 11px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-section-nav-inner::-webkit-scrollbar { display: none; }
+    .mobile-section-nav a {
+      flex: 0 0 auto;
+      padding: 8px 11px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px;
+      color: #d5e0e9;
+      background: rgba(255,255,255,.06);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .mobile-section-nav a:hover { color: var(--navy); background: var(--lime); }
     .brand {
       display: flex;
       align-items: center;
@@ -295,8 +319,25 @@
       color: var(--navy);
       background: var(--lime);
     }
+    body:has(#page-marktanalyse:target) .mobile-section-nav [href="#page-marktanalyse"],
+    body:has(#page-vollanalyse:target) .mobile-section-nav [href="#page-vollanalyse"],
+    body:has(#full-analysis :target) .mobile-section-nav [href="#page-vollanalyse"],
+    body:has(#page-strategie:target) .mobile-section-nav [href="#page-strategie"],
+    body:has(#page-businessplan:target) .mobile-section-nav [href="#page-businessplan"],
+    body:has(#page-ideen:target) .mobile-section-nav [href="#page-ideen"],
+    body:has(#page-digitalisierung:target) .mobile-section-nav [href="#page-digitalisierung"],
+    body:has(#page-organisation:target) .mobile-section-nav [href="#page-organisation"] {
+      color: var(--navy);
+      border-color: var(--lime);
+      background: var(--lime);
+    }
     body:not(:has(.page-view:target)):not(:has(#full-analysis :target)) .main-nav [href="#page-marktanalyse"] {
       color: var(--navy);
+      background: var(--lime);
+    }
+    body:not(:has(.page-view:target)):not(:has(#full-analysis :target)) .mobile-section-nav [href="#page-marktanalyse"] {
+      color: var(--navy);
+      border-color: var(--lime);
       background: var(--lime);
     }
     body:not(:has(.page-view:target)):not(:has(#full-analysis :target)) .nav-trigger,
@@ -504,13 +545,13 @@
 
     .market-size-board {
       display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
       margin-bottom: 18px;
     }
     .size-primary {
-      min-height: 330px;
-      padding: 34px;
+      min-height: 220px;
+      padding: 23px;
       color: #fff;
       background:
         radial-gradient(circle at 88% 18%, rgba(217,243,109,.18), transparent 18rem),
@@ -529,28 +570,28 @@
     }
     .size-primary .size-value {
       display: block;
-      margin: 30px 0 10px;
+      margin: 18px 0 9px;
       color: #fff;
-      font-size: clamp(50px, 7vw, 82px);
+      font-size: clamp(36px, 4vw, 52px);
       line-height: .92;
       font-weight: 920;
       letter-spacing: -.06em;
     }
-    .size-primary h3 { color: #fff; font-size: 25px; }
-    .size-primary p { max-width: 690px; color: #c4d1dc; }
+    .size-primary h3 { color: #fff; font-size: 20px; }
+    .size-primary p { max-width: 690px; color: #c4d1dc; font-size: 12px; line-height: 1.45; }
     .size-primary .scope-note {
       display: inline-block;
-      margin-top: 22px;
-      padding: 9px 12px;
+      margin-top: 15px;
+      padding: 7px 9px;
       border: 1px solid rgba(255,255,255,.14);
       border-radius: 10px;
       color: #d9e3eb;
       background: rgba(255,255,255,.06);
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 750;
     }
-    .size-side { display: grid; gap: 12px; }
-    .size-card { padding: 21px 22px; }
+    .size-side { display: contents; }
+    .size-card { min-height: 220px; padding: 23px; }
     .size-card small { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
     .size-card strong { display: block; margin: 6px 0 5px; font-size: 27px; line-height: 1; letter-spacing: -.035em; }
     .size-card p { font-size: 12px; line-height: 1.45; }
@@ -1195,8 +1236,13 @@
     .back-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
     @media (max-width: 1160px) {
-      .nav-shell { margin-left: auto; }
-      .nav-shell > summary.menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      html { scroll-padding-top: 126px; }
+      .nav-shell { display: none; }
+      .mobile-section-nav {
+        display: block;
+        border-top: 1px solid rgba(255,255,255,.08);
+        background: rgba(13,27,42,.96);
+      }
       .main-nav,
       .nav-shell:not([open]) > .main-nav {
         position: absolute;
@@ -1239,7 +1285,8 @@
       .analysis-banner-inner { align-items: stretch; flex-direction: column; }
       .flywheel-wrap { grid-template-columns: 1fr; }
       .timeline { grid-template-columns: 1fr; }
-      .market-size-board, .reviews-hero { grid-template-columns: 1fr; }
+      .market-size-board { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .reviews-hero { grid-template-columns: 1fr; }
       .review-locations { grid-template-columns: repeat(3,1fr); }
       .confidence-grid { grid-template-columns: 1fr; }
       .timeline::before { left: 21px; top: 10px; bottom: 10px; width: 3px; height: auto; }
@@ -1247,6 +1294,7 @@
       .phase::before { left: 12px; top: 4px; }
     }
     @media (max-width: 720px) {
+      html { scroll-padding-top: 118px; }
       .topbar-inner { height: 64px; }
       .brand-title small { display: none; }
       .brand-title { font-size: 14px; }
@@ -1258,6 +1306,8 @@
       .market-support, .research-grid, .trend-deltas { grid-template-columns: 1fr; }
       .review-locations { grid-template-columns: repeat(2,1fr); }
       .size-primary, .reviews-hero, .todo-research { padding: 25px; }
+      .market-size-board { grid-template-columns: 1fr; }
+      .size-primary, .size-card { min-height: auto; }
       .matrix > div:nth-child(odd) { border-right: 0; }
       .matrix > div { border-bottom: 1px solid var(--line); }
       .matrix > div:last-child { border-bottom: 0; }
@@ -1336,6 +1386,17 @@
         </nav>
       </details>
     </div>
+    <nav class="mobile-section-nav" aria-label="Dossier-Bereiche">
+      <div class="mobile-section-nav-inner">
+        <a href="#page-marktanalyse">Marktanalyse</a>
+        <a href="#page-strategie">Strategie</a>
+        <a href="#page-businessplan">Businessplan</a>
+        <a href="#page-ideen">Ideen &amp; Wachstum</a>
+        <a href="#page-digitalisierung">Digitalisierung</a>
+        <a href="#page-organisation">Organisation</a>
+        <a href="#page-vollanalyse">Vollanalyse &amp; Quellen</a>
+      </div>
+    </nav>
   </header>
 
   <div class="page-view" id="page-marktanalyse" data-page="marktanalyse">
@@ -1565,7 +1626,7 @@
     <section class="section" id="competition">
       <div class="section-head">
         <span class="kicker">06 · Wettbewerb</span>
-        <h2>Offline konsolidiert. Online konzentriert sich.</h2>
+        <h2>Der Markt ordnet sich neu – und schafft Raum für klare Profile.</h2>
         <p>Die Anzahl Buchhandels-Arbeitsstätten ist langfristig gesunken, zuletzt aber stabil. Gleichzeitig expandiert Orell Füssli, während Ex Libris seine letzten Filialen schliesst und das Onlinegeschäft an Galaxus übergibt.</p>
       </div>
       <div class="grid-2">
@@ -1650,31 +1711,9 @@
       <p class="source-note">Bewertungs-Snapshot vom 04.09.2026: <a href="https://www.google.com/maps/search/B%C3%BCcher+Brocky+Schweiz">Google Maps – Bücher Brocky Schweiz</a>. Weitere Quellen: <a href="https://www.buecher-brocky.ch/unsere-standorte/">Bücher-Brocky Standorte</a>, <a href="https://www.srf.ch/kultur/literatur/zu-besuch-in-buecher-brockis-wenn-bestseller-die-brockenstuben-zum-platzen-bringen">SRF 2023</a>, <a href="https://www.tele1.ch/nachrichten/einzigartiger-fundus-30-jahre-buecher-brocky-163270633">Tele1 2026</a>, <a href="https://support.google.com/trends/answer/4365533?hl=de">Google Trends – Methodik</a>. Bewertungen und Anzahl verändern sich laufend; der gewichtete Schnitt ist eine eigene Berechnung.</p>
     </section>
 
-    <section class="section" id="primary-research">
-      <div class="section-head">
-        <span class="kicker">08 · Primärforschung Brocky-Kunden</span>
-        <h2>Die wichtigste nächste Datenquelle sitzt in den fünf Filialen.</h2>
-        <p>Sekundärdaten erklären den Buchmarkt. Sie beantworten noch nicht, wer Bücher-Brocky tatsächlich besucht, warum Menschen kommen, was sie kaufen, wie sie die Marke entdecken und weshalb sie Bücher abgeben.</p>
-      </div>
-      <article class="card todo-research">
-        <span class="todo-badge">TODO · vor Kaufentscheid erheben</span>
-        <div class="research-grid">
-          <div class="research-card"><small>01 · Kundenprofil</small><h3>Wer besucht die Filialen?</h3><ul><li>Alter, Haushalt, Wohnort/Einzugsgebiet</li><li>Lesefrequenz, Lieblingsgenres, Sprachen</li><li>Neukunde versus Stammkunde</li><li>Käufer, Warengeber oder beides</li></ul></div>
-          <div class="research-card"><small>02 · Besuch & Kauf</small><h3>Wie entsteht Umsatz?</h3><ul><li>Besuchsanlass und Entdeckungskanal</li><li>Frequenz, Verweildauer und Kaufquote</li><li>Stückzahl, Warenkorb und Preiswahrnehmung</li><li>Gesuchter Titel versus spontaner Fund</li></ul></div>
-          <div class="research-card"><small>03 · Alternativen</small><h3>Gegen wen wird entschieden?</h3><ul><li>Orell Füssli, Galaxus, lokale Buchhandlungen</li><li>Bibliothek, Bücherschrank, Brocki</li><li>Ricardo/Tutti/Anibis und Online-Gebrauchtshops</li><li>Gründe für Kauf, Nichtkauf und Abwanderung</li></ul></div>
-          <div class="research-card"><small>04 · Marke & Erlebnis</small><h3>Was bleibt im Kopf?</h3><ul><li>Ungestützte und gestützte Bekanntheit</li><li>Markenattribute und Preisimage</li><li>NPS, Zufriedenheit und Wiederbesuchsabsicht</li><li>Orientierung, Ordnung, Beratung und Atmosphäre</li></ul></div>
-          <div class="research-card"><small>05 · Warengeber</small><h3>Warum werden Bücher abgegeben?</h3><ul><li>Auslöser: Umzug, Nachlass, Platz, Aktualität</li><li>Alternative Wege und Entscheidungskriterien</li><li>Vertrauen, Transparenz und Werterwartung</li><li>Menge, Qualität, Abholung und Zumutbarkeit</li></ul></div>
-          <div class="research-card"><small>06 · Nichtkunden</small><h3>Warum kommt man nicht?</h3><ul><li>Unkenntnis, Distanz oder fehlender Anlass</li><li>Vorurteile gegenüber Zustand und Sortiment</li><li>Gewünschte Kategorien und Services</li><li>Schwelle für Erstbesuch oder Empfehlung</li></ul></div>
-          <div class="research-card"><small>07 · Studiendesign</small><h3>Wie wird belastbar gemessen?</h3><ul><li>Kurzinterviews in allen fünf Filialen</li><li>Online-Follow-up über QR und Kassenbon</li><li>Separate Interviews mit Warengebern</li><li>Externe Stichprobe für echte Bekanntheit</li></ul></div>
-          <div class="research-card"><small>08 · Datenverknüpfung</small><h3>Was wird mit Betriebsdaten verbunden?</h3><ul><li>Frequenz, Bons, Stückzahl und Durchschnittsbon</li><li>Kategorie, Wochentag, Uhrzeit und Filiale</li><li>Annahme, Abverkauf, Alter und Ausschuss</li><li>Kundenantworten nur anonym/mit Einwilligung</li></ul></div>
-        </div>
-        <div class="research-output"><b>Geplanter Output</b><span>Einzugsgebiet und Kundensegmente · Awareness-Funnel · Besuchs- und Warengeber-Journey · Kauf- und Nichtkaufgründe · NPS je Filiale · Kategoriebedarf · Hypothesenliste für spätere Strategie- und Businessplanmodule.</span></div>
-      </article>
-    </section>
-
     <section class="section" id="evidence-map">
       <div class="section-head">
-        <span class="kicker">09 · Evidenzkarte</span>
+        <span class="kicker">08 · Evidenzkarte</span>
         <h2>Bekannt. Plausibel. Unbekannt.</h2>
         <p>Die Trennung verhindert, dass ein überzeugender Pitch stärker klingt als die Datenlage tatsächlich ist.</p>
       </div>
@@ -1687,7 +1726,7 @@
 
     <section class="section" id="market-summary">
       <div class="section-head">
-        <span class="kicker">10 · Zusammenfassung</span>
+        <span class="kicker">09 · Zusammenfassung</span>
         <h2>Was der Markt objektiv zeigt.</h2>
         <p>Sechs Aussagen verdichten die Datenlage – bewusst ohne Kaufentscheid, Umsetzungsplan oder Unternehmensbewertung.</p>
       </div>
@@ -1702,6 +1741,28 @@
           <div class="finding"><b>Marke schafft Vertrauen</b><span>4.67/5 aus 1’437 Google-Rezensionen über fünf Filialen; Bekanntheitsreichweite bleibt ungemessen.</span></div>
           <div class="finding"><b>Entscheidende Lücke bleibt</b><span>Gebrauchtbuch-TAM, Brocky-Kundenstruktur und Filialökonomie sind öffentlich nicht belastbar bekannt.</span></div>
         </div>
+      </article>
+    </section>
+
+    <section class="section" id="primary-research">
+      <div class="section-head">
+        <span class="kicker">10 · Primärforschung Brocky-Kunden</span>
+        <h2>Die wichtigste nächste Datenquelle sitzt in den fünf Filialen.</h2>
+        <p>Sekundärdaten erklären den Buchmarkt. Sie beantworten noch nicht, wer Bücher-Brocky tatsächlich besucht, warum Menschen kommen, was sie kaufen, wie sie die Marke entdecken und weshalb sie Bücher abgeben.</p>
+      </div>
+      <article class="card todo-research">
+        <span class="todo-badge">TODO · vor Kaufentscheid erheben</span>
+        <div class="research-grid">
+          <div class="research-card"><small>01 · Kundenprofil</small><h3>Wer besucht die Filialen?</h3><ul><li>Alter, Haushalt, Wohnort/Einzugsgebiet</li><li>Lesefrequenz, Lieblingsgenres, Sprachen</li><li>Neukunde versus Stammkunde</li><li>Käufer, Warengeber oder beides</li></ul></div>
+          <div class="research-card"><small>02 · Besuch &amp; Kauf</small><h3>Wie entsteht Umsatz?</h3><ul><li>Besuchsanlass und Entdeckungskanal</li><li>Frequenz, Verweildauer und Kaufquote</li><li>Stückzahl, Warenkorb und Preiswahrnehmung</li><li>Gesuchter Titel versus spontaner Fund</li></ul></div>
+          <div class="research-card"><small>03 · Alternativen</small><h3>Gegen wen wird entschieden?</h3><ul><li>Orell Füssli, Galaxus, lokale Buchhandlungen</li><li>Bibliothek, Bücherschrank, Brocki</li><li>Ricardo/Tutti/Anibis und Online-Gebrauchtshops</li><li>Gründe für Kauf, Nichtkauf und Abwanderung</li></ul></div>
+          <div class="research-card"><small>04 · Marke &amp; Erlebnis</small><h3>Was bleibt im Kopf?</h3><ul><li>Ungestützte und gestützte Bekanntheit</li><li>Markenattribute und Preisimage</li><li>NPS, Zufriedenheit und Wiederbesuchsabsicht</li><li>Orientierung, Ordnung, Beratung und Atmosphäre</li></ul></div>
+          <div class="research-card"><small>05 · Warengeber</small><h3>Warum werden Bücher abgegeben?</h3><ul><li>Auslöser: Umzug, Nachlass, Platz, Aktualität</li><li>Alternative Wege und Entscheidungskriterien</li><li>Vertrauen, Transparenz und Werterwartung</li><li>Menge, Qualität, Abholung und Zumutbarkeit</li></ul></div>
+          <div class="research-card"><small>06 · Nichtkunden</small><h3>Warum kommt man nicht?</h3><ul><li>Unkenntnis, Distanz oder fehlender Anlass</li><li>Vorurteile gegenüber Zustand und Sortiment</li><li>Gewünschte Kategorien und Services</li><li>Schwelle für Erstbesuch oder Empfehlung</li></ul></div>
+          <div class="research-card"><small>07 · Studiendesign</small><h3>Wie wird belastbar gemessen?</h3><ul><li>Kurzinterviews in allen fünf Filialen</li><li>Online-Follow-up über QR und Kassenbon</li><li>Separate Interviews mit Warengebern</li><li>Externe Stichprobe für echte Bekanntheit</li></ul></div>
+          <div class="research-card"><small>08 · Datenverknüpfung</small><h3>Was wird mit Betriebsdaten verbunden?</h3><ul><li>Frequenz, Bons, Stückzahl und Durchschnittsbon</li><li>Kategorie, Wochentag, Uhrzeit und Filiale</li><li>Annahme, Abverkauf, Alter und Ausschuss</li><li>Kundenantworten nur anonym/mit Einwilligung</li></ul></div>
+        </div>
+        <div class="research-output"><b>Geplanter Output</b><span>Einzugsgebiet und Kundensegmente · Awareness-Funnel · Besuchs- und Warengeber-Journey · Kauf- und Nichtkaufgründe · NPS je Filiale · Kategoriebedarf · Hypothesenliste für spätere Strategie- und Businessplanmodule.</span></div>
       </article>
     </section>
 
