@@ -288,6 +288,7 @@
     body:has(#page-vollanalyse:target) .main-nav [href="#page-vollanalyse"],
     body:has(#full-analysis :target) .main-nav [href="#page-vollanalyse"],
     body:has(#page-businessplan:target) .main-nav [href="#page-businessplan"],
+    body:has(#page-strategie:target) .main-nav [href="#page-strategie"],
     body:has(#page-ideen:target) .main-nav [href="#page-ideen"],
     body:has(#page-digitalisierung:target) .main-nav [href="#page-digitalisierung"],
     body:has(#page-organisation:target) .main-nav [href="#page-organisation"] {
@@ -501,6 +502,76 @@
     .kpi .delta { display: inline-flex; margin-top: 13px; padding: 5px 8px; border-radius: 999px; background: #e7f7f4; color: var(--teal-dark); font-size: 11px; font-weight: 850; }
     .kpi .delta.warn { color: #9a5b0b; background: #fff0d7; }
 
+    .market-size-board {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .size-primary {
+      min-height: 330px;
+      padding: 34px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(217,243,109,.18), transparent 18rem),
+        linear-gradient(145deg, var(--navy), #17394b);
+    }
+    .size-tier {
+      display: inline-flex;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--lime);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .size-primary .size-value {
+      display: block;
+      margin: 30px 0 10px;
+      color: #fff;
+      font-size: clamp(50px, 7vw, 82px);
+      line-height: .92;
+      font-weight: 920;
+      letter-spacing: -.06em;
+    }
+    .size-primary h3 { color: #fff; font-size: 25px; }
+    .size-primary p { max-width: 690px; color: #c4d1dc; }
+    .size-primary .scope-note {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 10px;
+      color: #d9e3eb;
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .size-side { display: grid; gap: 12px; }
+    .size-card { padding: 21px 22px; }
+    .size-card small { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    .size-card strong { display: block; margin: 6px 0 5px; font-size: 27px; line-height: 1; letter-spacing: -.035em; }
+    .size-card p { font-size: 12px; line-height: 1.45; }
+    .size-card.context { border-style: dashed; background: rgba(255,255,255,.56); }
+    .size-card.unknown { border-color: #efc981; background: #fff8e8; }
+    .size-card.unknown strong { color: #9a5b0b; }
+
+    .market-support {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .support-stat {
+      padding: 18px 20px;
+      border-left: 4px solid var(--teal);
+      border-radius: 12px;
+      background: rgba(255,255,255,.72);
+    }
+    .support-stat strong { display: block; font-size: 24px; line-height: 1; letter-spacing: -.035em; }
+    .support-stat span { color: var(--ink-2); font-size: 12px; }
+
     .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
     .card {
@@ -533,6 +604,69 @@
     .market-svg .dot { fill: var(--navy); stroke: var(--lime); stroke-width: 4; }
     .market-svg .year { fill: #92a7ba; font-size: 13px; font-weight: 700; }
     .market-svg .value { fill: #fff; font-size: 14px; font-weight: 900; }
+    .market-svg .axis { fill: #8197aa; font-size: 11px; font-weight: 700; }
+    .trend-deltas { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 12px; }
+    .trend-deltas div { padding: 11px; border-radius: 11px; background: rgba(255,255,255,.07); }
+    .trend-deltas small { display: block; color: #91a5b7; font-size: 9px; font-weight: 850; text-transform: uppercase; letter-spacing: .07em; }
+    .trend-deltas strong { color: #fff; font-size: 16px; }
+
+    .reviews-hero {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: .62fr 1.38fr;
+      gap: 30px;
+      align-items: center;
+      color: #fff;
+      background: linear-gradient(145deg, var(--navy), #17394b);
+    }
+    .review-score { text-align: center; }
+    .review-score strong { display: block; color: var(--lime); font-size: clamp(54px,7vw,82px); line-height: .95; letter-spacing: -.06em; }
+    .review-score span { color: #c4d1dc; font-size: 13px; }
+    .review-locations { display: grid; grid-template-columns: repeat(5,1fr); gap: 9px; margin-top: 20px; }
+    .review-chip { padding: 12px 10px; border: 1px solid rgba(255,255,255,.11); border-radius: 11px; background: rgba(255,255,255,.06); }
+    .review-chip b { display: block; color: #fff; font-size: 16px; }
+    .review-chip small { color: #9fb0c3; font-size: 10px; }
+    .signal-stack { display: grid; gap: 12px; margin-top: 20px; }
+    .signal { padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.76); }
+    .signal b { display: block; margin-bottom: 4px; }
+    .signal p { font-size: 13px; }
+    .signal .signal-label { display: inline-flex; margin-bottom: 8px; padding: 4px 7px; border-radius: 999px; color: var(--teal-dark); background: #e8f7f4; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .signal.open .signal-label { color: #9a5b0b; background: #fff0d7; }
+
+    .todo-research {
+      position: relative;
+      padding: 34px;
+      border: 2px dashed #d5a84f;
+      background: linear-gradient(145deg, #fffaf0, #fff);
+    }
+    .todo-badge {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #6f4300;
+      background: var(--amber);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .research-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 24px; }
+    .research-card { padding: 20px; border: 1px solid #ead9b6; border-radius: 14px; background: rgba(255,255,255,.82); }
+    .research-card small { color: #95600f; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .research-card h3 { margin-top: 7px; font-size: 18px; }
+    .research-card ul { margin: 10px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
+    .research-output { margin-top: 20px; padding: 20px; border-radius: 14px; color: #dce6ed; background: var(--navy); }
+    .research-output b { display: block; margin-bottom: 7px; color: var(--lime); }
+    .research-output span { font-size: 13px; }
+
+    .confidence-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .confidence-card { padding: 26px; }
+    .confidence-card .confidence-label { display: inline-flex; padding: 6px 9px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    .confidence-card.known .confidence-label { color: var(--teal-dark); background: #e8f7f4; }
+    .confidence-card.plausible .confidence-label { color: #7f6511; background: #f6f0cf; }
+    .confidence-card.unknown .confidence-label { color: #9a392f; background: #fdeae7; }
+    .confidence-card h3 { margin-top: 14px; }
+    .confidence-card ul { margin: 12px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
 
     .split-stat {
       padding: 30px;
@@ -1105,6 +1239,9 @@
       .analysis-banner-inner { align-items: stretch; flex-direction: column; }
       .flywheel-wrap { grid-template-columns: 1fr; }
       .timeline { grid-template-columns: 1fr; }
+      .market-size-board, .reviews-hero { grid-template-columns: 1fr; }
+      .review-locations { grid-template-columns: repeat(3,1fr); }
+      .confidence-grid { grid-template-columns: 1fr; }
       .timeline::before { left: 21px; top: 10px; bottom: 10px; width: 3px; height: auto; }
       .phase { padding: 0 0 22px 60px; }
       .phase::before { left: 12px; top: 4px; }
@@ -1118,6 +1255,9 @@
       .pitch { padding-top: 60px; }
       .section { margin-bottom: 68px; }
       .kpi-grid, .grid-2, .grid-3, .matrix, .gate, .question-grid, .finding-grid, .module-grid { grid-template-columns: 1fr; }
+      .market-support, .research-grid, .trend-deltas { grid-template-columns: 1fr; }
+      .review-locations { grid-template-columns: repeat(2,1fr); }
+      .size-primary, .reviews-hero, .todo-research { padding: 25px; }
       .matrix > div:nth-child(odd) { border-right: 0; }
       .matrix > div { border-bottom: 1px solid var(--line); }
       .matrix > div:last-child { border-bottom: 0; }
@@ -1183,9 +1323,12 @@
             <summary class="nav-trigger">Marktanalyse</summary>
             <div class="nav-dropdown">
               <a href="#page-marktanalyse">Visuelle Zusammenfassung<small>Die wichtigsten Marktdaten im Präsentationsformat</small></a>
+              <a href="#brand-awareness">Markenbekanntheit<small>Suchsignale, Reichweite und Standortbewertungen</small></a>
+              <a href="#primary-research">Primärforschung · TODO<small>Kunden, Nichtkunden und Warengeber befragen</small></a>
               <a href="#page-vollanalyse">Vollanalyse &amp; Quellen<small>Methodik, Detailtabellen und Ressourcen</small></a>
             </div>
           </details>
+          <a class="nav-link" href="#page-strategie">Strategie</a>
           <a class="nav-link" href="#page-businessplan">Businessplan</a>
           <a class="nav-link" href="#page-ideen">Ideen &amp; Wachstum</a>
           <a class="nav-link" href="#page-digitalisierung">Digitalisierung</a>
@@ -1199,7 +1342,7 @@
   <section class="hero" id="start">
     <div class="hero-inner">
       <div>
-        <div class="eyebrow">Marktanalyse · Datenstand 27.08.2026</div>
+        <div class="eyebrow">Marktanalyse · aktualisiert 04.09.2026</div>
         <h1>Der Schweizer Buchmarkt <span>in Zahlen.</span></h1>
         <p class="hero-lead">Eine visuelle Zusammenfassung zu Marktgrösse, Leseverhalten, Handelskanälen, Secondhand und Wettbewerb – mit Fokus auf die Relevanz für Bücher-Brocky.</p>
         <div class="hero-actions">
@@ -1217,6 +1360,7 @@
           <div><i>3</i><span>Leseverhalten und relevante Zielgruppen</span></div>
           <div><i>4</i><span>Secondhand, Warenzufluss und Bibliotheken</span></div>
           <div><i>5</i><span>Buchhandlungen und Wettbewerbslandschaft</span></div>
+          <div><i>6</i><span>Markenbekanntheit, Evidenzlücken und Primärforschung</span></div>
         </div>
       </aside>
     </div>
@@ -1226,50 +1370,44 @@
     <section class="section" id="market">
       <div class="section-head">
         <span class="kicker">01 · Markt auf einen Blick</span>
-        <h2>Gross genug. Stabil genug. Aber kein Selbstläufer.</h2>
-        <p>Der Deutschschweizer Buchmarkt ist ein reifer Markt mit hoher Reichweite. Wachstum muss aus Marktanteil, besserem Warenumschlag und operativer Exzellenz kommen – nicht aus einer allgemeinen Marktwelle.</p>
+        <h2>Nicht jede grosse Zahl ist gleich relevant.</h2>
+        <p>Für Bücher-Brocky ist der physische Privatkundenmarkt die engste belastbare Referenz. Der gesamte Buchmarkt und der breite Secondhand-Markt geben Kontext – sie sind aber kein Umsatzpotenzial, das einfach übernommen werden kann.</p>
       </div>
-      <div class="kpi-grid">
-        <article class="kpi" style="--accent:var(--teal)">
-          <div class="kpi-label">Buchmarkt Deutschschweiz</div>
-          <div class="kpi-value">CHF 581.8 Mio.</div>
-          <div class="kpi-note">Gesamtmarkt 2025 inklusive B2C und B2B.</div>
-          <span class="delta">+1.1% vs. 2024</span>
+      <div class="market-size-board">
+        <article class="card size-primary">
+          <span class="size-tier">1 · Direkte Referenzgrösse</span>
+          <strong class="size-value">CHF 372.2 Mio.</strong>
+          <h3>Physischer B2C-Kassenmarkt Deutschschweiz 2025</h3>
+          <p>Abgeleitet aus CHF 405.6 Mio. Kassenmarkt abzüglich CHF 33.4 Mio. E-Books. Diese Ausgabenwelt ist der engste öffentliche Vergleich für gebrauchte physische Bücher – aber weiterhin <strong>kein</strong> gemessener Gebrauchtbuchmarkt.</p>
+          <span class="scope-note">Hohe Relevanz · belastbare Ableitung · Secondhand-Anteil unbekannt</span>
         </article>
-        <article class="kpi" style="--accent:var(--lime)">
-          <div class="kpi-label">Verkaufte Bücher</div>
-          <div class="kpi-value">18.5 Mio.</div>
-          <div class="kpi-note">Stationär und online, inklusive E-Books.</div>
-          <span class="delta">+0.3% Stückzahl</span>
-        </article>
-        <article class="kpi" style="--accent:var(--amber)">
-          <div class="kpi-label">Private Leserreichweite</div>
-          <div class="kpi-value">73.9%</div>
-          <div class="kpi-note">Bevölkerung ab 15 Jahren mit mindestens einem privaten Buch.</div>
-          <span class="delta warn">−4.6 Pp. vs. 2019</span>
-        </article>
-        <article class="kpi" style="--accent:var(--blue)">
-          <div class="kpi-label">Ø Preis physisches Buch</div>
-          <div class="kpi-value">CHF 23.07</div>
-          <div class="kpi-note">Brocky-Einstieg ab CHF 3.50/4.50: starkes Preisversprechen.</div>
-          <span class="delta">+0.9% Preis</span>
-        </article>
+        <div class="size-side">
+          <article class="card size-card"><small>2 · Erweiterter Buchmarkt</small><strong>CHF 433.8 Mio.</strong><p>B2C total; physisch plus digital. Nützlich als obere Vergleichsgrösse.</p></article>
+          <article class="card size-card"><small>3 · Gesamtmarkt</small><strong>CHF 581.8 Mio.</strong><p>B2C plus CHF 148.0 Mio. B2B. Schulen, Bibliotheken und Institutionen sind nicht automatisch Brocky-Nachfrage.</p></article>
+          <article class="card size-card context"><small>4 · Nur Makrokontext</small><strong>CHF 1.7 Mrd.</strong><p>Online-Secondhand-GMV aller Warengruppen. Nicht zur Hochrechnung von gebrauchten Büchern geeignet.</p></article>
+          <article class="card size-card unknown"><small>Entscheidende Lücke</small><strong>Gebrauchtbuch-TAM: unbekannt</strong><p>Keine geprüfte öffentliche Schweizer Umsatz- oder Absatzstatistik gefunden.</p></article>
+        </div>
       </div>
-      <p class="source-note">Quellen: <a href="https://www.sbvv.ch/userfiles/Marktreport/Marktreport_2025.pdf">SBVV Marktreport 2025</a>, <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/36186984/master">BFS Kultur- und Freizeitverhalten 2024</a>.</p>
+      <div class="market-support">
+        <div class="support-stat"><strong>18.5 Mio.</strong><span>verkaufte Bücher 2025, inklusive E-Books</span></div>
+        <div class="support-stat"><strong>73.9%</strong><span>private Leserreichweite in der Bevölkerung 15+</span></div>
+        <div class="support-stat"><strong>CHF 23.07</strong><span>Durchschnittspreis eines physischen Buchs</span></div>
+      </div>
+      <p class="source-note">Quellen: <a href="https://www.sbvv.ch/userfiles/Marktreport/Marktreport_2025.pdf">SBVV Marktreport 2025</a>, <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/36186984/master">BFS Kultur- und Freizeitverhalten 2024</a>, <a href="https://storage.googleapis.com/vaayu-assets/SMG%20x%20Vaayu_Avoided%20Emissions%20of%20Swiss%20Second%20Hand.pdf">SMG/Vaayu Secondhand-Report</a>. Eigene Ableitung: CHF 405.6 Mio. − CHF 33.4 Mio. = CHF 372.2 Mio.</p>
     </section>
 
     <section class="section" id="trend">
       <div class="section-head">
         <span class="kicker">02 · Marktdynamik</span>
-        <h2>Resilient, aber volumenarm.</h2>
-        <p>Die Erholung 2025 gleicht den Rückgang des Vorjahres nur teilweise aus. Im ersten Halbjahr 2026 sind Umsatz und Stückzahl erneut leicht rückläufig.</p>
+        <h2>Seitwärtsbewegung statt Wachstumswelle.</h2>
+        <p>Die Erholung 2025 gleicht den Rückgang des Vorjahres nur teilweise aus. Gegenüber 2023 liegt der Markt nominal noch 0.8% tiefer; im ersten Halbjahr 2026 sind Umsatz und Stückzahl erneut leicht rückläufig.</p>
       </div>
       <div class="grid-2">
         <article class="card market-chart">
           <div class="card-pad">
             <div class="chart-title">
-              <div><h3>Gesamtmarkt Deutschschweiz</h3><p>Umsatz in CHF Mio.</p></div>
-              <small>2023–2025</small>
+              <div><h3>Gesamtmarkt Deutschschweiz</h3><p>Umsatz in CHF Mio. · Achse 570–590</p></div>
+              <small>Nominal</small>
             </div>
             <svg class="market-svg" viewBox="0 0 620 270" role="img" aria-label="Marktumsatz: 586.4 Millionen 2023, 575.7 Millionen 2024, 581.8 Millionen 2025">
               <defs>
@@ -1278,21 +1416,29 @@
                   <stop offset="100%" stop-color="#d9f36d" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <line class="grid" x1="55" y1="42" x2="580" y2="42"/>
-              <line class="grid" x1="55" y1="118" x2="580" y2="118"/>
-              <line class="grid" x1="55" y1="194" x2="580" y2="194"/>
-              <path class="area" d="M90 58 L315 188 L540 114 L540 218 L90 218 Z"/>
-              <path class="trend" d="M90 58 L315 188 L540 114"/>
-              <circle class="dot" cx="90" cy="58" r="7"/>
-              <circle class="dot" cx="315" cy="188" r="7"/>
-              <circle class="dot" cx="540" cy="114" r="7"/>
-              <text class="value" x="90" y="38" text-anchor="middle">586.4</text>
-              <text class="value" x="315" y="168" text-anchor="middle">575.7</text>
-              <text class="value" x="540" y="94" text-anchor="middle">581.8</text>
+              <line class="grid" x1="58" y1="42" x2="580" y2="42"/>
+              <line class="grid" x1="58" y1="118" x2="580" y2="118"/>
+              <line class="grid" x1="58" y1="194" x2="580" y2="194"/>
+              <text class="axis" x="47" y="46" text-anchor="end">590</text>
+              <text class="axis" x="47" y="122" text-anchor="end">580</text>
+              <text class="axis" x="47" y="198" text-anchor="end">570</text>
+              <path class="area" d="M90 69 L315 151 L540 104 L540 218 L90 218 Z"/>
+              <path class="trend" d="M90 69 L315 151 L540 104"/>
+              <circle class="dot" cx="90" cy="69" r="7"/>
+              <circle class="dot" cx="315" cy="151" r="7"/>
+              <circle class="dot" cx="540" cy="104" r="7"/>
+              <text class="value" x="90" y="49" text-anchor="middle">586.4</text>
+              <text class="value" x="315" y="131" text-anchor="middle">575.7</text>
+              <text class="value" x="540" y="84" text-anchor="middle">581.8</text>
               <text class="year" x="90" y="248" text-anchor="middle">2023</text>
               <text class="year" x="315" y="248" text-anchor="middle">2024</text>
               <text class="year" x="540" y="248" text-anchor="middle">2025</text>
             </svg>
+            <div class="trend-deltas">
+              <div><small>2024 vs. 2023</small><strong>−1.8%</strong></div>
+              <div><small>2025 vs. 2024</small><strong>+1.1%</strong></div>
+              <div><small>2025 vs. 2023</small><strong>−0.8%</strong></div>
+            </div>
           </div>
         </article>
         <article class="card">
@@ -1307,8 +1453,8 @@
               <div class="bar-row"><span class="bar-label">Preis</span><div class="bar-track"><div class="bar-fill lime" style="--w:33%"></div></div><strong class="bar-value">+0.5%</strong></div>
             </div>
             <div style="margin-top:32px;padding:20px;border-radius:15px;background:#f3f6f5">
-              <strong style="display:block;margin-bottom:6px;font-size:19px">Management-Lesart</strong>
-              <p>Base Case ohne Marktwachstum planen. Jeder Wachstumspunkt muss aus Frequenz, Konversion, Warenmix, Preis oder neuen Kanälen kommen.</p>
+              <strong style="display:block;margin-bottom:6px;font-size:19px">Was die Reihe belegt</strong>
+              <p>Nominal bleibt der Markt nahe an der Grundlinie. Leichte Preissteigerungen stabilisieren den Umsatz, während die Stückzahl schwächer ist. Eine Aussage über den separaten Gebrauchtbuchmarkt lässt sich daraus nicht ableiten.</p>
             </div>
           </div>
         </article>
@@ -1320,7 +1466,7 @@
       <div class="section-head">
         <span class="kicker">03 · Kanal & Format</span>
         <h2>Print bleibt das Produkt. Digital wird der Weg dorthin.</h2>
-        <p>Die stärkste strategische Fehlentscheidung wäre, „online“ mit „E-Book“ gleichzusetzen. Fast die Hälfte der physischen Privatkäufe wird online bestellt, während E-Books nur einen kleinen Umsatzanteil ausmachen.</p>
+        <p>„Online“ ist nicht gleich „E-Book“: Fast die Hälfte der physischen Privatkäufe wird online bestellt, während E-Books nur einen kleinen Umsatzanteil ausmachen.</p>
       </div>
       <div class="grid-2">
         <article class="card split-stat">
@@ -1340,22 +1486,14 @@
           </div>
         </article>
       </div>
-      <div class="card card-pad" style="margin-top:22px">
-        <h3>Die richtige Digitalstrategie für Bücher-Brocky</h3>
-        <div class="grid-3" style="margin-top:18px">
-          <div><strong style="color:var(--teal-dark)">1 · Sichtbarkeit</strong><p>Neu eingetroffen, besondere Funde, lokale Themen, Öffnungszeiten und Annahme.</p></div>
-          <div><strong style="color:var(--teal-dark)">2 · Reservation</strong><p>Kuratierte Titel oder Reihen reservieren und in der Filiale abholen.</p></div>
-          <div><strong style="color:var(--teal-dark)">3 · Selektiver E-Commerce</strong><p>Nur hochwertige oder bündelbare Ware, wenn die Unit Economics bewiesen sind.</p></div>
-        </div>
-      </div>
       <p class="source-note">Quelle: <a href="https://www.sbvv.ch/userfiles/Marktreport/Marktreport_2025.pdf">SBVV Marktreport 2025</a>. E-Book-Anteil als eigene Ableitung: 33.4 / 405.6.</p>
     </section>
 
     <section class="section" id="customers">
       <div class="section-head">
         <span class="kicker">04 · Kunden</span>
-        <h2>Der Kernkunde ist klar – der Wachstumskunde auch.</h2>
-        <p>Das heutige Volumen sitzt bei Viel-Leserinnen und älteren, bildungsnahen Zielgruppen. Die Zukunft liegt zusätzlich in Familien, Manga, Reihen, Young Adult und social-first Discovery.</p>
+        <h2>Lesen ist breit – intensive Nutzung ist konzentriert.</h2>
+        <p>Viel-Lesen ist bei Frauen sowie ab 45 Jahren überdurchschnittlich. Kinder- und Jugendbücher tragen hohe Stückzahlen; junge Zielgruppen lesen weniger intensiv, bleiben aber über Comics, Reihen und Adaptionen erreichbar.</p>
       </div>
       <div class="grid-2">
         <article class="card card-pad">
@@ -1385,9 +1523,9 @@
         </article>
       </div>
       <div class="grid-3" style="margin-top:20px">
-        <article class="card audience-card"><span class="num">1</span><span class="tag">Umsatzkern</span><h3>Viel-Leserinnen 45+</h3><ul><li>Romane, Krimi, Biografien</li><li>Empfehlung und Orientierung</li><li>Hohe Wiederkaufschance</li></ul></article>
-        <article class="card audience-card"><span class="num">2</span><span class="tag">Käufer + Geber</span><h3>Bücherreiche Haushalte 55+</h3><ul><li>Nachlässe und Haushaltsverkleinerung</li><li>Abholkomfort und Vertrauen</li><li>Überdurchschnittliche Sammlungen</li></ul></article>
-        <article class="card audience-card"><span class="num">3</span><span class="tag">Zukunft</span><h3>Familien & junge Genrelesende</h3><ul><li>Reihen, Manga, YA, Fantasy</li><li>BookTok und visuelle Discovery</li><li>Bündel und tiefe Experimentierkosten</li></ul></article>
+        <article class="card audience-card"><span class="num">1</span><span class="tag">Beobachtet</span><h3>Viel-Lesende 45+</h3><ul><li>13.7% bei 45–59</li><li>21.4% bei 60–74</li><li>20.5% bei 75+</li></ul></article>
+        <article class="card audience-card"><span class="num">2</span><span class="tag">Bestand</span><h3>Bücherreiche Haushalte</h3><ul><li>41% besitzen über 100 Bücher</li><li>51% verschenken aussortierte Bücher</li><li>Nur 4% verkaufen sie</li></ul></article>
+        <article class="card audience-card"><span class="num">3</span><span class="tag">Format</span><h3>Kinder & junge Genres</h3><ul><li>25.4% Stückanteil Kinder/Jugend</li><li>Comics relevant bei 15–29</li><li>Reihen und Adaptionen als Lesetreiber</li></ul></article>
       </div>
       <p class="source-note">Quellen: <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/36186984/master">BFS Kultur- und Freizeitverhalten 2024</a>, <a href="https://www.sbvv.ch/userfiles/Marktreport/Marktreport_2025.pdf">SBVV Marktreport 2025</a>, <a href="https://www.zhaw.ch/storage/psychologie/upload/forschung/medienpsychologie/james/2018/JAMES_2024_DE.pdf">JAMES 2024</a>.</p>
     </section>
@@ -1395,8 +1533,8 @@
     <section class="section" id="supply">
       <div class="section-head">
         <span class="kicker">05 · Gebraucht & Warenzufluss</span>
-        <h2>Die Nachfrage ist da. Der Burggraben liegt in der bequemen Abgabe.</h2>
-        <p>Der entscheidende Wettbewerb findet nicht nur beim Verkauf statt, sondern vorher: Wer bekommt gute Sammlungen, Nachlässe und Haushaltsbestände effizient ins System?</p>
+        <h2>Gebrauchtakzeptanz ist hoch – Einzelverkauf bleibt mühsam.</h2>
+        <p>Die Daten zeigen sowohl Nachfrageakzeptanz als auch ein Angebotsphänomen: Viele Haushalte geben Bücher weiter, aber nur wenige verkaufen sie selbst.</p>
       </div>
       <div class="grid-2">
         <article class="card supply-card">
@@ -1418,7 +1556,7 @@
             <div class="friction"><b>3</b>Verpacken, versenden oder Übergabe koordinieren</div>
             <div class="friction"><b>4</b>Zahlung, Reklamation und Restrisiko tragen</div>
           </div>
-          <div style="margin-top:20px;padding:16px;border-radius:13px;background:#e8f7f4;color:var(--teal-dark);font-weight:850">Bücher-Brocky monetarisiert Bequemlichkeit – nicht nur Bücher.</div>
+          <div style="margin-top:20px;padding:16px;border-radius:13px;background:#e8f7f4;color:var(--teal-dark);font-weight:850">Marktbeobachtung: Bequemlichkeit beeinflusst, wohin aussortierte Bücher fliessen.</div>
         </article>
       </div>
       <p class="source-note">Quellen: <a href="https://exlibris.azureedge.net/cms/11915/Ex_Libris_Lesebarometer_2025.pdf">Ex Libris/Sotomo Lesebarometer 2025</a>, <a href="https://www.mckinsey.com/industries/private-capital/our-insights/unlocking-switzerlands-potential-the-rise-of-online-marketplaces">McKinsey Schweizer Online-Marktplätze 2025</a>. Die Secondhand-Erhebung umfasst alle Warengruppen, nicht nur Bücher.</p>
@@ -1468,22 +1606,101 @@
       <p class="source-note">Quellen: <a href="https://www.pxweb.bfs.admin.ch/pxweb/de/px-x-0602010000_103/-/px-x-0602010000_103.px/">BFS STATENT</a>, <a href="https://corporate.migros.ch/de/news/galaxus-uebernimmt-das-online-geschaeft-von-ex-libris">Migros/Ex Libris</a>, <a href="https://www.buchhaus.ch/de/home">Lüthy Group</a>, <a href="https://www.bfs.admin.ch/bfs/de/home/statistiken/kultur-medien-informationsgesellschaft-sport/kultur/bibliotheken.html">BFS Bibliotheken</a>.</p>
     </section>
 
+    <section class="section" id="brand-awareness">
+      <div class="section-head">
+        <span class="kicker">07 · Markenbekanntheit</span>
+        <h2>Starker digitaler Vertrauensbeweis. Ungemessene Reichweite.</h2>
+        <p>Bewertungen belegen Zufriedenheit und lokale Sichtbarkeit bei Personen, die Bücher-Brocky bereits kennen. Sie messen jedoch keine gestützte oder ungestützte Markenbekanntheit in der Bevölkerung.</p>
+      </div>
+      <article class="card reviews-hero">
+        <div class="review-score">
+          <strong>4.67/5</strong>
+          <span>gewichteter Google-Schnitt<br>über 1’437 Rezensionen</span>
+        </div>
+        <div>
+          <h3 style="color:#fff;font-size:27px">Alle fünf Filialen mit hoher Bewertung</h3>
+          <p style="color:#bdcbd6">Die Profile zeigen ein konsistentes Kundenerlebnis über die Standorte. Häufig sichtbare Themen sind Auswahl, günstige Preise, Ordnung und freundliche Bedienung.</p>
+          <div class="review-locations">
+            <div class="review-chip"><b>Zürich · 4.7</b><small>479 Rezensionen</small></div>
+            <div class="review-chip"><b>Basel · 4.7</b><small>288 Rezensionen</small></div>
+            <div class="review-chip"><b>Luzern · 4.6</b><small>238 Rezensionen</small></div>
+            <div class="review-chip"><b>Aarau · 4.6</b><small>225 Rezensionen</small></div>
+            <div class="review-chip"><b>Bern · 4.7</b><small>207 Rezensionen</small></div>
+          </div>
+        </div>
+      </article>
+      <div class="grid-2" style="margin-top:20px">
+        <article class="card card-pad">
+          <h3>Was öffentlich sichtbar ist</h3>
+          <div class="signal-stack">
+            <div class="signal"><span class="signal-label">Findbarkeit</span><b>Fünf eigenständige Standortprofile</b><p>Die Markenabfrage in Google Maps liefert Aarau, Basel, Bern, Luzern und Zürich mit Website-Verlinkung und substanzieller Bewertungsbasis.</p></div>
+            <div class="signal"><span class="signal-label">Owned Media</span><b>Standortseiten, Newsletter und neuer Instagram-Kanal</b><p>Die Website kommuniziert bis zu 100’000 Bücher je Standort, 30 Themenbereiche und das 30-Jahr-Jubiläum 2026. Der Newsletter erscheint höchstens fünf- bis sechsmal jährlich.</p></div>
+            <div class="signal"><span class="signal-label">Earned Media</span><b>Regionale und nationale Medienpräsenz</b><p>SRF porträtierte den Warenzufluss 2023; Tele1 griff 2026 das 30-jährige Bestehen auf. Das ist qualitative Bekanntheit, aber kein Reichweiten-KPI.</p></div>
+          </div>
+        </article>
+        <article class="card card-pad">
+          <h3>Was Google Trends nicht beantwortet</h3>
+          <div class="signal-stack">
+            <div class="signal open"><span class="signal-label">Offen</span><b>Kein belastbarer absoluter Suchvolumenwert</b><p>Google Trends normalisiert Interesse auf 0–100 und weist keine absoluten Suchzahlen aus. Für „Bücher Brocky“ liegt noch kein reproduzierbarer Export als Zeitreihe vor; deshalb wird hier kein Wert erfunden.</p></div>
+            <div class="signal open"><span class="signal-label">Offen</span><b>Bekanntheit ausserhalb der bestehenden Kundschaft</b><p>Rezensionen zeigen Erfahrung nach dem Besuch. Ungestützte Bekanntheit, gestützte Bekanntheit und Consideration müssen in einer Primärbefragung gemessen werden.</p></div>
+            <div class="signal"><span class="signal-label">Nächster Messpunkt</span><b>Eigene First-Party-Baseline</b><p>Google Search Console, Business-Profile-Insights und ein Keyword-Planner-Export sollten Markenimpressionen, Routenanfragen, Anrufe und Websiteklicks je Standort liefern.</p></div>
+          </div>
+        </article>
+      </div>
+      <p class="source-note">Bewertungs-Snapshot vom 04.09.2026: <a href="https://www.google.com/maps/search/B%C3%BCcher+Brocky+Schweiz">Google Maps – Bücher Brocky Schweiz</a>. Weitere Quellen: <a href="https://www.buecher-brocky.ch/unsere-standorte/">Bücher-Brocky Standorte</a>, <a href="https://www.srf.ch/kultur/literatur/zu-besuch-in-buecher-brockis-wenn-bestseller-die-brockenstuben-zum-platzen-bringen">SRF 2023</a>, <a href="https://www.tele1.ch/nachrichten/einzigartiger-fundus-30-jahre-buecher-brocky-163270633">Tele1 2026</a>, <a href="https://support.google.com/trends/answer/4365533?hl=de">Google Trends – Methodik</a>. Bewertungen und Anzahl verändern sich laufend; der gewichtete Schnitt ist eine eigene Berechnung.</p>
+    </section>
+
+    <section class="section" id="primary-research">
+      <div class="section-head">
+        <span class="kicker">08 · Primärforschung Brocky-Kunden</span>
+        <h2>Die wichtigste nächste Datenquelle sitzt in den fünf Filialen.</h2>
+        <p>Sekundärdaten erklären den Buchmarkt. Sie beantworten noch nicht, wer Bücher-Brocky tatsächlich besucht, warum Menschen kommen, was sie kaufen, wie sie die Marke entdecken und weshalb sie Bücher abgeben.</p>
+      </div>
+      <article class="card todo-research">
+        <span class="todo-badge">TODO · vor Kaufentscheid erheben</span>
+        <div class="research-grid">
+          <div class="research-card"><small>01 · Kundenprofil</small><h3>Wer besucht die Filialen?</h3><ul><li>Alter, Haushalt, Wohnort/Einzugsgebiet</li><li>Lesefrequenz, Lieblingsgenres, Sprachen</li><li>Neukunde versus Stammkunde</li><li>Käufer, Warengeber oder beides</li></ul></div>
+          <div class="research-card"><small>02 · Besuch & Kauf</small><h3>Wie entsteht Umsatz?</h3><ul><li>Besuchsanlass und Entdeckungskanal</li><li>Frequenz, Verweildauer und Kaufquote</li><li>Stückzahl, Warenkorb und Preiswahrnehmung</li><li>Gesuchter Titel versus spontaner Fund</li></ul></div>
+          <div class="research-card"><small>03 · Alternativen</small><h3>Gegen wen wird entschieden?</h3><ul><li>Orell Füssli, Galaxus, lokale Buchhandlungen</li><li>Bibliothek, Bücherschrank, Brocki</li><li>Ricardo/Tutti/Anibis und Online-Gebrauchtshops</li><li>Gründe für Kauf, Nichtkauf und Abwanderung</li></ul></div>
+          <div class="research-card"><small>04 · Marke & Erlebnis</small><h3>Was bleibt im Kopf?</h3><ul><li>Ungestützte und gestützte Bekanntheit</li><li>Markenattribute und Preisimage</li><li>NPS, Zufriedenheit und Wiederbesuchsabsicht</li><li>Orientierung, Ordnung, Beratung und Atmosphäre</li></ul></div>
+          <div class="research-card"><small>05 · Warengeber</small><h3>Warum werden Bücher abgegeben?</h3><ul><li>Auslöser: Umzug, Nachlass, Platz, Aktualität</li><li>Alternative Wege und Entscheidungskriterien</li><li>Vertrauen, Transparenz und Werterwartung</li><li>Menge, Qualität, Abholung und Zumutbarkeit</li></ul></div>
+          <div class="research-card"><small>06 · Nichtkunden</small><h3>Warum kommt man nicht?</h3><ul><li>Unkenntnis, Distanz oder fehlender Anlass</li><li>Vorurteile gegenüber Zustand und Sortiment</li><li>Gewünschte Kategorien und Services</li><li>Schwelle für Erstbesuch oder Empfehlung</li></ul></div>
+          <div class="research-card"><small>07 · Studiendesign</small><h3>Wie wird belastbar gemessen?</h3><ul><li>Kurzinterviews in allen fünf Filialen</li><li>Online-Follow-up über QR und Kassenbon</li><li>Separate Interviews mit Warengebern</li><li>Externe Stichprobe für echte Bekanntheit</li></ul></div>
+          <div class="research-card"><small>08 · Datenverknüpfung</small><h3>Was wird mit Betriebsdaten verbunden?</h3><ul><li>Frequenz, Bons, Stückzahl und Durchschnittsbon</li><li>Kategorie, Wochentag, Uhrzeit und Filiale</li><li>Annahme, Abverkauf, Alter und Ausschuss</li><li>Kundenantworten nur anonym/mit Einwilligung</li></ul></div>
+        </div>
+        <div class="research-output"><b>Geplanter Output</b><span>Einzugsgebiet und Kundensegmente · Awareness-Funnel · Besuchs- und Warengeber-Journey · Kauf- und Nichtkaufgründe · NPS je Filiale · Kategoriebedarf · Hypothesenliste für spätere Strategie- und Businessplanmodule.</span></div>
+      </article>
+    </section>
+
+    <section class="section" id="evidence-map">
+      <div class="section-head">
+        <span class="kicker">09 · Evidenzkarte</span>
+        <h2>Bekannt. Plausibel. Unbekannt.</h2>
+        <p>Die Trennung verhindert, dass ein überzeugender Pitch stärker klingt als die Datenlage tatsächlich ist.</p>
+      </div>
+      <div class="confidence-grid">
+        <article class="card confidence-card known"><span class="confidence-label">Bekannt · belegt</span><h3>Darauf können wir uns stützen</h3><ul><li>CHF 372.2 Mio. physischer B2C-Referenzmarkt</li><li>73.9% private Leserreichweite</li><li>Print dominiert den Kassenmarkt</li><li>Fünf Filialen und starke Google-Bewertungen</li><li>463 Schweizer Buchhandels-Arbeitsstätten 2024</li></ul></article>
+        <article class="card confidence-card plausible"><span class="confidence-label">Plausibel · Hypothese</span><h3>Spricht für das Format</h3><ul><li>Tiefer Preis senkt die Experimentierhürde</li><li>Discovery ergänzt die präzise Onlinesuche</li><li>Bequeme Abgabe kann guten Warenzufluss fördern</li><li>Familien und Genrelesende könnten zusätzliche Frequenz bringen</li><li>Lokale Kreislaufwirkung kann Vertrauen stärken</li></ul></article>
+        <article class="card confidence-card unknown"><span class="confidence-label">Unbekannt · kaufentscheidend</span><h3>Muss noch bewiesen werden</h3><ul><li>Schweizer Gebrauchtbuch-TAM und Marktanteil</li><li>Bekanntheit und Suchvolumen je Einzugsgebiet</li><li>Frequenz, Conversion, Bon und Wiederkaufrate</li><li>Filial-EBITDA, Flächen- und Personalproduktivität</li><li>Annahmequote, Sell-through, Ausschuss und Entsorgungskosten</li></ul></article>
+      </div>
+    </section>
+
     <section class="section" id="market-summary">
       <div class="section-head">
-        <span class="kicker">07 · Zusammenfassung</span>
+        <span class="kicker">10 · Zusammenfassung</span>
         <h2>Was der Markt objektiv zeigt.</h2>
         <p>Sechs Aussagen verdichten die Datenlage – bewusst ohne Kaufentscheid, Umsetzungsplan oder Unternehmensbewertung.</p>
       </div>
       <article class="card market-conclusion">
         <h3>Ein stabiler physischer Markt mit klarer Secondhand-Relevanz.</h3>
-        <p>Der Markt wächst kaum, ist aber breit genug und strukturell passend für ein günstiges, lokales und erlebnisorientiertes Gebrauchtbuchformat.</p>
+        <p>Der Markt wächst kaum, bleibt aber breit, physisch geprägt und mit hoher Gebrauchtakzeptanz. Gleichzeitig fehlen genau jene Unternehmens- und Primärdaten, die einen Kaufentscheid tragen müssen.</p>
         <div class="finding-grid">
           <div class="finding"><b>Reif, nicht schrumpfend</b><span>CHF 581.8 Mio. Marktvolumen 2025; kurzfristige Schwankungen statt strukturellem Einbruch.</span></div>
           <div class="finding"><b>Print bleibt dominant</b><span>E-Books erreichen 8.2% des Kassenumsatzes. Digital verändert vor allem Suche und Bestellung.</span></div>
           <div class="finding"><b>Breite Leserschaft</b><span>73.9% lesen privat Bücher; Viel-Lesende konzentrieren sich besonders bei Frauen und 60+.</span></div>
           <div class="finding"><b>Secondhand ist akzeptiert</b><span>62% bestehen nicht zwingend auf Neuware; Preis und Bequemlichkeit senken die Kaufbarriere.</span></div>
-          <div class="finding"><b>Warenzufluss ist zentral</b><span>Nur 4% verkaufen aussortierte Bücher. Eine einfache Abgabe löst ein reales Haushaltsproblem.</span></div>
-          <div class="finding"><b>Wettbewerb verschiebt sich</b><span>Stationäre Netze konsolidieren, während Onlinekomfort und Marktplätze an Bedeutung gewinnen.</span></div>
+          <div class="finding"><b>Marke schafft Vertrauen</b><span>4.67/5 aus 1’437 Google-Rezensionen über fünf Filialen; Bekanntheitsreichweite bleibt ungemessen.</span></div>
+          <div class="finding"><b>Entscheidende Lücke bleibt</b><span>Gebrauchtbuch-TAM, Brocky-Kundenstruktur und Filialökonomie sind öffentlich nicht belastbar bekannt.</span></div>
         </div>
       </article>
     </section>
@@ -1637,7 +1854,7 @@
 <tr class="even">
 <td>Warenquellen</td>
 <td style="text-align: right;">private Abgaben, Nachlässe, Räumungen, Liquidationen/Konkurse</td>
-<td>Netzwerke und Abhollogistik sind strategische Assets</td>
+<td>Netzwerke und Abhollogistik können den Warenzufluss beeinflussen</td>
 </tr>
 <tr class="odd">
 <td>Warenrotation</td>
@@ -1673,16 +1890,6 @@
 <li>Diebstahl und Schwund</li>
 </ul>
 <p>Ein SRF-Bericht nannte 2016 systemweit 400–500 Tonnen entsorgte Bücher pro Jahr. Diese Zahl ist alt und muss beim Verkäufer neu erhoben werden; als historische Warnung zeigt sie, wie material- und arbeitsintensiv „kostenloses Inventar“ sein kann.</p>
-<h3 id="vorläufige-positionierung">Vorläufige Positionierung</h3>
-<p><strong>Bücher-Brocky ist weder klassische Buchhandlung noch Antiquariat noch gewöhnliches Brocki.</strong> Das Unternehmen besetzt die Schnittmenge aus:</p>
-<ul>
-<li>preisgünstigem Lesen,</li>
-<li>grossem Offline-Discovery-Erlebnis,</li>
-<li>lokaler Kreislaufwirtschaft,</li>
-<li>unkomplizierter Haushaltsentlastung,</li>
-<li>kuratierter Massenlogistik für Einzelstücke.</li>
-</ul>
-<p>Diese Position ist verteidigungsfähig, wenn die Filialen lokal genügend Warenzufuhr und Frequenz haben. Sie ist schwerer zu skalieren als ein klassischer Händler, weil jedes Stück anders ist und die Ware dezentral anfällt.</p>
 <hr />
 <h2 id="3-marktgrösse-und-entwicklung">3. Marktgrösse und Entwicklung</h2>
 <h3 id="31-deutschschweizer-buchmarkt-20232025">3.1 Deutschschweizer Buchmarkt 2023–2025</h3>
@@ -1802,7 +2009,7 @@
 </tr>
 </tbody>
 </table>
-<p>Belletristik sowie Kinder- und Jugendbücher stützen den Markt. Für die Übernahmeplanung sollte daher nicht mit organischem Marktanstieg gerechnet werden.</p>
+<p>Belletristik sowie Kinder- und Jugendbücher stützen den Markt. Die Reihe liefert keinen Beleg für ein breites organisches Marktwachstum.</p>
 <h3 id="34-langfristige-richtung">3.4 Langfristige Richtung</h3>
 <table>
 <thead>
@@ -1840,7 +2047,7 @@
 </tr>
 </tbody>
 </table>
-<p>Der Markt bewegt sich um eine weitgehend flache Grundlinie. Der Umsatz wird teilweise durch Preise gestützt, während die Stückzahl schwach bleibt. Ein günstiges Gebrauchtangebot kann in einem preissensiblen Umfeld profitieren; zugleich darf man nicht davon ausgehen, dass eine allgemeine Marktwelle operative Schwächen verdeckt.</p>
+<p>Der Markt bewegt sich um eine weitgehend flache Grundlinie. Der Umsatz wird teilweise durch Preise gestützt, während die Stückzahl schwach bleibt. Ob ein günstiges Gebrauchtangebot davon profitiert, lässt sich aus der Neumarktserie allein nicht belegen.</p>
 <h3 id="35-warengruppen--wo-physische-nachfrage-sitzt">3.5 Warengruppen – wo physische Nachfrage sitzt</h3>
 <table>
 <thead>
@@ -1908,13 +2115,13 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Operative Folgerung:</strong> Der grösste Hebel liegt nicht zwingend in „mehr Büchern“, sondern in einer besseren Annahmelogik. Titel mit hoher Wiederkaufs- und niedriger Veraltungsgefahr sollten schnell sichtbar werden; veraltete Reise-, Recht-, Medizin- und IT-Titel benötigen harte Annahme- oder Ausschussregeln.</p>
+<p><strong>Marktbeobachtung:</strong> Warengruppen unterscheiden sich stark in Wiederkaufsfrequenz und Veraltungsgefahr. Reise, Recht, Medizin und IT verlieren typischerweise schneller an Aktualität als Belletristik, Klassiker oder ausgewählte Kunst- und Regionaltitel.</p>
 <h3 id="36-schweizer-produktion-versus-import">3.6 Schweizer Produktion versus Import</h3>
 <p>Schweizer Verlage erzielen laut SBVV rund <strong>17% des Umsatzes</strong> und <strong>13% der Stückzahl</strong> bei physischen Büchern; mehr als 80% der Bücher stammen damit aus Deutschland und Österreich. Daraus folgen:</p>
 <ul>
 <li>Die Preis- und Lieferlogik des Neumarkts hängt stark vom Ausland ab.</li>
 <li>Schweizer Autorinnen, Regionalia, Dialekt, lokale Geschichte und vergriffene Ausgaben können im Gebrauchtmarkt stärker differenzieren als austauschbare aktuelle Bestseller.</li>
-<li>Fremdsprachige Sortimente sollten standortspezifisch gesteuert werden, insbesondere in Zürich, Basel und Bern.</li>
+<li>Die Relevanz fremdsprachiger Sortimente dürfte zwischen den Einzugsgebieten Zürich, Basel, Bern, Luzern und Aarau variieren.</li>
 </ul>
 <hr />
 <h2 id="4-wie-viele-buchhandlungen-gibt-es">4. Wie viele Buchhandlungen gibt es?</h2>
@@ -2096,7 +2303,7 @@
 <li>Als Chancen sehen sie Beratung, Service, Kooperation, Erlebnis, lokale Verankerung, Onlineergänzung, BookTok sowie Haptik und analoge Begegnung.</li>
 </ul>
 <p><strong>Exakte Ressource:</strong> <a href="https://www.sbvv.ch/userfiles/Branchenmonitor/2023-Umfrage_Unabhangige_Buchhandlungen_SBVV.pdf">SBVV-Umfrage unabhängige Buchhandlungen 2023</a> (<strong>B/C</strong>, freiwillige Umfrage, rund die Hälfte der eingeladenen Betriebe).</p>
-<p><strong>Übernahmerelevanz:</strong> Der Markt konsolidiert nicht nur durch Schliessungen, sondern auch durch Nachfolgelösungen. Bücher-Brocky könnte langfristig als Plattform für einzelne Bestände, Mietflächen oder lokale Betreiberkompetenz auftreten. Das sollte aber erst nach Stabilisierung des Kerngeschäfts verfolgt werden.</p>
+<p><strong>Marktbeobachtung:</strong> Konsolidierung entsteht nicht nur durch Schliessungen, sondern auch durch Nachfolgelösungen und die Übernahme einzelner Standorte oder Bestände.</p>
 <hr />
 <h2 id="5-leseverhalten-und-zielgruppen">5. Leseverhalten und Zielgruppen</h2>
 <h3 id="51-reichweite-und-intensität-des-privaten-lesens">5.1 Reichweite und Intensität des privaten Lesens</h3>
@@ -2157,7 +2364,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Implikation:</strong> Frauen sind das klar stärkste Volumen- und Viel-Lese-Segment. Das Lesebarometer zeigt zusätzlich hohe Affinität zu Romanen und Gespräch/Empfehlung. Empfehlungsflächen, Romane, Krimi, Biografien, Geschenk- und Community-Elemente sollten entsprechend stark sein, ohne Männersegmente zu vernachlässigen.</p>
+<p><strong>Beobachtung:</strong> Frauen sind das klar stärkste Volumen- und Viel-Lese-Segment. Das Lesebarometer zeigt zusätzlich eine hohe Affinität zu Romanen sowie Gespräch und Empfehlung.</p>
 <h3 id="53-alter">5.3 Alter</h3>
 <table>
 <thead>
@@ -2207,7 +2414,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Implikation:</strong> 60+ ist als Käufer- und Gebersegment besonders wichtig. Diese Gruppe sollte nicht mit einem rein nostalgischen Auftritt angesprochen werden, sondern mit guter Orientierung, Sitzgelegenheiten, lesbaren Schildern, persönlicher Beratung, Parkplatz-/ÖV-Komfort und Nachlass-/Abholservice.</p>
+<p><strong>Beobachtung:</strong> 60+ weist die höchste Viel-Lesequote auf und besitzt häufiger grössere Buchbestände. Damit ist die Gruppe sowohl auf der Nachfrage- als auch auf der potenziellen Angebotsseite relevant.</p>
 <h3 id="54-bildung">5.4 Bildung</h3>
 <table>
 <thead>
@@ -2516,37 +2723,26 @@
 </table>
 <p><strong>Zentrale Konsequenz für Bücher-Brocky:</strong> Der Engpass ist nicht zwingend der vorhandene Buchbestand in Haushalten. Der Engpass ist, Menschen im richtigen Moment eine bequemere und vertrauenswürdigere Abgabeoption als Verschenken, Bücherschrank oder Entsorgung anzubieten.</p>
 <hr />
-<h2 id="6-zielgruppen-priorisierung">6. Zielgruppen-Priorisierung</h2>
+<h2 id="6-zielgruppen-priorisierung">6. Relevante Kundensegmente</h2>
 <h3 id="segment-1--viel-leserinnen-45">Segment 1 – Viel-Leserinnen 45+</h3>
 <p><strong>Belege:</strong> Frauen lesen deutlich häufiger; Viel-Lesequote steigt ab 45 und ist bei 60–74 am höchsten.<br />
-<strong>Bedürfnisse:</strong> grosse Auswahl, Empfehlungen, Krimi/Romane/Biografien, gute Orientierung, Aufenthaltsqualität.<br />
-<strong>Angebot:</strong> kuratierte Neuankünfte, Serien, thematische Tische, Kundenkarte, Reservieren/Abholen.<br />
-<strong>Rolle:</strong> primäres Umsatz- und Wiederkaufssegment.</p>
+<strong>Beobachtete Bedürfnisse:</strong> grosse Auswahl, Empfehlungen, Krimi/Romane/Biografien, gute Orientierung und Aufenthaltsqualität.</p>
 <h3 id="segment-2--bücherreiche-haushalte-55--nachlässe">Segment 2 – Bücherreiche Haushalte 55+ / Nachlässe</h3>
 <p><strong>Belege:</strong> Ältere Gruppen besitzen häufiger grosse Sammlungen; nur 4% verkaufen aussortierte Bücher.<br />
-<strong>Bedürfnisse:</strong> schnelle, respektvolle und einfache Abgabe; Abholung grösserer Bestände; klare Annahmeregeln.<br />
-<strong>Angebot:</strong> Nachlass-Hotline, Fotovorprüfung, planbare Abholfenster, transparente Wiederverwendungsbotschaft.<br />
-<strong>Rolle:</strong> primäres Beschaffungssegment, teilweise zugleich Kundschaft.</p>
+<strong>Beobachtete Bedürfnisse:</strong> schnelle, respektvolle und einfache Abgabe; Abholung grösserer Bestände; klare Annahmeregeln.</p>
 <h3 id="segment-3--familien-mit-kindern">Segment 3 – Familien mit Kindern</h3>
 <p><strong>Belege:</strong> Kinder-/Jugendbuch erreicht 19.2% Umsatz und 25.4% Stück; tiefer Gebrauchtpreis senkt Experimentierkosten.<br />
-<strong>Bedürfnisse:</strong> altersgerechte Navigation, Reihen, guter Zustand, günstige Bündel, Rückgabe aussortierter Kinderbücher.<br />
-<strong>Angebot:</strong> 5-für-X-Bündel, Altersstufen, komplette Reihen, Vorlese-Ecke, Tausch-/Rücklaufanreize.<br />
-<strong>Rolle:</strong> hohe Stückzahl, Generationenbindung und Kreislauf.</p>
+<strong>Beobachtete Bedürfnisse:</strong> altersgerechte Navigation, Reihen, guter Zustand, günstige Auswahl und einfache Weitergabe aussortierter Kinderbücher.</p>
 <h3 id="segment-4--junge-trend--und-genrelesende">Segment 4 – Junge Trend- und Genrelesende</h3>
 <p><strong>Belege:</strong> 71.8% der 15–29-Jährigen lesen, 28% Comics; JAMES zeigt Serien- und Adaptionseffekte.<br />
-<strong>Bedürfnisse:</strong> Manga, YA, Fantasy, Romance, BookTok, visuelle Ordnung, mobile Neuheitenhinweise.<br />
-<strong>Angebot:</strong> Trendregal, Social-Clips aus Neuankünften, Wunschlisten, Reihen-Alarm, Events.<br />
-<strong>Rolle:</strong> Zukunftssicherung; nicht primär mit Gesamtbestand ansprechen.</p>
+<strong>Beobachtete Bedürfnisse:</strong> Manga, YA, Fantasy, Romance, BookTok, visuelle Ordnung und Hinweise auf Neuheiten.</p>
 <h3 id="segment-5--studierende-und-wissenssuchende">Segment 5 – Studierende und Wissenssuchende</h3>
 <p><strong>Belege:</strong> Tertiärgebildete lesen zu 84.2%; Bibliotheksnutzung für Studium/Arbeit ist relevant.<br />
 <strong>Bedürfnisse:</strong> günstige Grundlagenwerke, Geistes-/Sozialwissenschaften, Fremdsprachen, lokale Abholung.<br />
-<strong>Risiko:</strong> veraltete Editionen, Recht, IT, Medizin und Lehrmittel.<br />
-<strong>Angebot:</strong> Hochschulkooperationen, Semesteraktionen, geprüfte Auflagen-/Jahrgangskennzeichnung.</p>
+<strong>Risiko:</strong> veraltete Editionen, Recht, IT, Medizin und Lehrmittel.</p>
 <h3 id="segment-6--sammlerinnen-antiquariats--und-geschenkekäufer">Segment 6 – Sammlerinnen, Antiquariats- und Geschenkekäufer</h3>
 <p><strong>Belege:</strong> Ein Teil der Ware hat individuell höheren Wert; Bücher dienen Erinnerung, Identität und Dekoration.<br />
-<strong>Bedürfnisse:</strong> besondere Ausgaben, Kunst, Regionalia, vergriffene Titel, transparente Zustands-/Preislogik.<br />
-<strong>Angebot:</strong> separat kuratierte „Brocky-Funde“, Online-Vorschau und Reservation.<br />
-<strong>Rolle:</strong> kleineres Volumen, potenziell überdurchschnittlicher Deckungsbeitrag.</p>
+<strong>Beobachtete Bedürfnisse:</strong> besondere Ausgaben, Kunst, Regionalia, vergriffene Titel und transparente Zustands-/Preislogik.</p>
 <hr />
 <h2 id="7-bibliotheken-konkurrenz-leseförderung-und-partnerschaft">7. Bibliotheken: Konkurrenz, Leseförderung und Partnerschaft</h2>
 <h3 id="71-letzte-bfs-reihe-referenzjahr-2023">7.1 Letzte BFS-Reihe, Referenzjahr 2023</h3>
@@ -2666,16 +2862,6 @@
 <p><strong>Wichtiger Methodenbruch:</strong> Die 1’094/1’095 Bibliotheken 2024 dürfen nicht als Schliessungswelle gegenüber 1’498 im Jahr 2023 interpretiert werden. Abdeckung und Erhebungsbasis änderten sich.</p>
 <h3 id="74-wettbewerbswirkung">7.4 Wettbewerbswirkung</h3>
 <p>Bibliotheken substituieren Käufe, besonders bei aktuellen Titeln und Gelegenheitslesenden. Ihre viel höhere Ausleihzahl als der jährliche Neuverkauf zeigt aber vor allem, wie oft ein vorhandenes Buch genutzt werden kann. Der Gebrauchtbuchmarkt steht derselben Logik näher als der Neumarkt.</p>
-<h3 id="75-partnerschaftsmöglichkeiten">7.5 Partnerschaftsmöglichkeiten</h3>
-<ul>
-<li>Übernahme geeigneter ausgeschiedener Bestände nach klaren Qualitätsregeln</li>
-<li>Gemeinsame Themenwochen, Lesungen und lokale Literaturveranstaltungen</li>
-<li>Gutschein oder Kaufangebot für häufig ausgeliehene beziehungsweise nicht verfügbare Titel</li>
-<li>Weiterleitung grosser privater Sammlungen, die Bibliotheken nicht annehmen</li>
-<li>Brocky-Spende für Leseförderung pro verkauftem Kinderbuch</li>
-<li>Gemeinsame Kreislaufkommunikation und lokale Bücherrouten</li>
-</ul>
-<p>Partnerschaften dürfen nicht dazu führen, dass Bücher-Brocky primär den Ausschuss anderer Institutionen übernimmt. Jede Kooperation braucht Annahmequoten, Transportkosten und Qualitätskriterien.</p>
 <hr />
 <h2 id="8-der-schweizer-gebrauchtbuchmarkt">8. Der Schweizer Gebrauchtbuchmarkt</h2>
 <h3 id="81-die-wichtigste-datenlücke">8.1 Die wichtigste Datenlücke</h3>
@@ -2749,7 +2935,7 @@
 <th>Alternative</th>
 <th>Vorteil</th>
 <th>Nachteil</th>
-<th>Brocky-Antwort</th>
+<th>Beobachtete Lücke</th>
 </tr>
 </thead>
 <tbody>
@@ -2757,46 +2943,40 @@
 <td>Freunde/Familie</td>
 <td>persönlich, sinnvoll</td>
 <td>begrenzte Aufnahme</td>
-<td>Restbestand einfach übernehmen</td>
+<td>grössere Restbestände bleiben offen</td>
 </tr>
 <tr class="even">
 <td>Öffentlicher Bücherschrank</td>
 <td>kostenlos, lokal</td>
 <td>kleine Menge, oft voll</td>
-<td>grosse Mengen und planbare Abgabe</td>
+<td>Kapazität und Planbarkeit begrenzt</td>
 </tr>
 <tr class="odd">
 <td>Bibliothek/Hilfswerk</td>
 <td>gemeinnützige Wahrnehmung</td>
 <td>Annahme eingeschränkt</td>
-<td>Transparenz über Wiederverwendung</td>
+<td>Annahmebedingungen unterscheiden sich</td>
 </tr>
 <tr class="even">
 <td>Ricardo/Tutti/Anibis</td>
 <td>Erlöspotenzial</td>
 <td>hoher Zeitaufwand</td>
-<td>bequem, keine Einzelarbeit</td>
+<td>Bequemlichkeit bleibt ungelöst</td>
 </tr>
 <tr class="odd">
 <td>Antiquariat</td>
 <td>Preis für wertvolle Titel</td>
 <td>selektiv</td>
-<td>Vorprüfung und faire Sonderlogik</td>
+<td>nur ein kleiner Teil ist attraktiv</td>
 </tr>
 <tr class="even">
 <td>Altpapier/Entsorgung</td>
 <td>schnell</td>
 <td>emotional unbefriedigend</td>
-<td>zweite Chance für geeignete Titel</td>
+<td>kein weiterer Lesekreislauf</td>
 </tr>
 </tbody>
 </table>
-<h3 id="86-strategische-beschaffungsbotschaft">8.6 Strategische Beschaffungsbotschaft</h3>
-<p>Die Kommunikation sollte nicht primär „Wir nehmen Gratisbücher“ lauten, sondern:</p>
-<blockquote>
-<p>Wir schaffen Platz, behandeln Sammlungen respektvoll und geben geeigneten Büchern eine zweite Leserschaft – ohne Inserieren, Verpacken oder Einzelverkauf.</p>
-</blockquote>
-<p>Eine glaubwürdige Aussage braucht Transparenz: Nicht jedes Buch kann verkauft werden; was geschieht mit Ausschuss? Wie wird Recycling organisiert? Werden wertvolle Bücher erkannt? Gerade bei Nachlässen ist Vertrauen wichtiger als maximaler Warenzufluss.</p>
 <hr />
 <h2 id="9-wettbewerbslandkarte">9. Wettbewerbslandkarte</h2>
 <h3 id="91-direkte-und-indirekte-formate">9.1 Direkte und indirekte Formate</h3>
@@ -2884,7 +3064,7 @@
 <h3 id="93-allgemeine-brockis-als-waren--und-kundenkonkurrenz">9.3 Allgemeine Brockis als Waren- und Kundenkonkurrenz</h3>
 <p>Die <a href="https://www.brocki.ch/de/filialen/">Heilsarmee brocki.ch</a> betreibt rund 20–21 Standorte. In einem Monat – Juni 2023 – verkaufte das Netz laut eigener Meldung <a href="https://www.brocki.ch/de/2023/07/01/secondhand-ferienlektueren/">35’605 gebrauchte Bücher</a> in 20 Filialen. Die Monatszahl darf nicht einfach annualisiert werden, zeigt aber substanzielle Nachfrage in einem nicht buchzentrierten Format.</p>
 <p><a href="https://hiob.ch/filialen/">HIOB</a> betreibt ungefähr 22 Brocki-Shops und überschneidet sich unter anderem in den Regionen Basel, Bern, Luzern/Emmen und Aargau. Beide Organisationen profitieren von gemeinnütziger Wahrnehmung und breiter Warenabgabe.</p>
-<h3 id="94-strategische-verschiebung-ex-libris-zu-galaxus">9.4 Strategische Verschiebung: Ex Libris zu Galaxus</h3>
+<h3 id="94-strategische-verschiebung-ex-libris-zu-galaxus">9.4 Strukturverschiebung: Ex Libris zu Galaxus</h3>
 <p>Migros gab am 30. Januar 2026 bekannt:</p>
 <ul>
 <li>Die <strong>15 verbleibenden Ex-Libris-Filialen</strong> schliessen bis Ende 2026.</li>
@@ -2892,12 +3072,10 @@
 <li>Galaxus führt bereits rund <strong>1.5 Mio. Bücher</strong>; das Ex-Libris-Sortiment umfasst laut Galaxus rund <strong>8 Mio.</strong> Titel.</li>
 </ul>
 <p><strong>Quellen:</strong> <a href="https://corporate.migros.ch/de/news/galaxus-uebernimmt-das-online-geschaeft-von-ex-libris">Migros-Medienmitteilung</a>, <a href="https://www.galaxus.ch/de/page/galaxus-uebernimmt-den-buecherhandel-vonex-libris-41373">Galaxus-Mitteilung</a>.</p>
-<p><strong>Folgen für Bücher-Brocky:</strong></p>
+<p><strong>Beobachtbare Marktfolgen:</strong></p>
 <ul>
 <li>Lokal entsteht an gewissen Standorten weniger physischer Medienwettbewerb.</li>
 <li>Online steigt die Reichweite eines starken Universalisten mit Logistik-, Such- und Cross-Selling-Kompetenz.</li>
-<li>Bücher-Brocky sollte nicht über Titelbreite oder Liefergeschwindigkeit gegen Galaxus antreten.</li>
-<li>Differenzierung muss über Preis, Einzigartigkeit, lokale Nähe, Nachhaltigkeit, Community und Fundcharakter erfolgen.</li>
 </ul>
 <h3 id="95-orell-füssli-wachstum-und-omnichannel">9.5 Orell Füssli: Wachstum und Omnichannel</h3>
 <p>Die Orell-Füssli-Gruppe weist für den proportional konsolidierten Bereich Book Retailing 2025 <strong>CHF 128.3 Mio. Umsatz</strong> und <strong>CHF 10.5 Mio. EBIT</strong> aus; bei einer 50:50-Joint-Venture-Konsolidierung entspricht der volle Umsatz grob dem Doppelten. 2026 baute das Unternehmen das Netz weiter aus und erwarb zusätzliche Abholpunkte.</p>
@@ -2911,9 +3089,9 @@
 <li>E-Reading</li>
 <li>eigene Community „Book Circle“</li>
 </ul>
-<p>Das ist ein gutes Benchmarking-Set. Bücher-Brocky muss nicht alles kopieren, sollte aber die zugrunde liegenden Jobs-to-be-done digital lösen.</p>
+<p>Diese Fähigkeiten bilden einen relevanten Benchmark für das veränderte Wettbewerbsniveau im Schweizer Buchhandel.</p>
 <hr />
-<h2 id="10-online-versus-offline-die-richtige-strategiefrage">10. Online versus offline: die richtige Strategiefrage</h2>
+<h2 id="10-online-versus-offline-die-richtige-strategiefrage">10. Online versus offline: Marktkontext</h2>
 <h3 id="101-schweizer-e-commerce-kontext-2025">10.1 Schweizer E-Commerce-Kontext 2025</h3>
 <table>
 <thead>
@@ -2955,36 +3133,6 @@
 </table>
 <p><strong>Quelle:</strong> <a href="https://handelsverband.swiss/wp-content/uploads/2026/03/Medien-Jahreserhebung-Onlinehandel-Schweiz-2025_11.03.26.pdf">Handelsverband.swiss / NIQ / Schweizerische Post – Onlinehandel Schweiz 2025</a> (<strong>B</strong>, mehr als 350 Unternehmen und Schätzungen).</p>
 <p>Der Wert CHF 0.33 Mrd. umfasst den gesamten Umsatz von Onlinehändlern, deren Hauptsortiment zu mindestens zwei Dritteln Bücher/Medien ist. Er kann Medienprodukte enthalten und Universalisten ausschliessen. Er ist deshalb <strong>nicht</strong> mit den SBVV-Buchumsätzen vergleichbar.</p>
-<h3 id="102-was-online-für-bücher-brocky-leisten-sollte">10.2 Was online für Bücher-Brocky leisten sollte</h3>
-<p><strong>Stufe 1 – Reichweite und Service</strong></p>
-<ul>
-<li>aktuelle Öffnungszeiten und Annahmeregeln</li>
-<li>Google-/Karten-Optimierung je Standort</li>
-<li>„Was ist diese Woche neu?“</li>
-<li>Abholanfrage für Nachlässe/grössere Bestände</li>
-<li>Newsletter und Social Media pro Interessengebiet</li>
-</ul>
-<p><strong>Stufe 2 – kuratierte Verfügbarkeit</strong></p>
-<ul>
-<li>besondere Funde</li>
-<li>komplette Reihen</li>
-<li>Manga/Young Adult</li>
-<li>Regionalia und vergriffene Titel</li>
-<li>Kunst-/Sammlerbücher</li>
-<li>Reservieren und in Filiale abholen</li>
-</ul>
-<p><strong>Stufe 3 – nur bei bewiesener Ökonomie</strong></p>
-<ul>
-<li>zentraler, versendbarer Onlinebestand</li>
-<li>ISBN-Scanning und automatisierte Metadaten</li>
-<li>Mindestverkaufspreis für Onlineerfassung</li>
-<li>Bündel statt Einzelversand</li>
-<li>Marktplatz-Syndikation für hochwertige Ware</li>
-</ul>
-<h3 id="103-warum-kein-sofortiger-vollkatalog">10.3 Warum kein sofortiger Vollkatalog?</h3>
-<p>Bei einem CHF-3.50-Buch können Fotografieren, Zustandsbeschreibung, Metadatenprüfung, Einlagerung, Kommissionierung, Verpackung, Zahlung und Support den gesamten Deckungsbeitrag verbrauchen. Vor Ausbau muss gelten:</p>
-<p><strong>Online-Deckungsbeitrag je Bestellung = Verkaufspreis − Payment − Verpackung − Versandzuschuss − Erfassungszeit − Pick/Pack − Retouren − Plattformkosten</strong></p>
-<p>Ein Vollkatalog ist erst sinnvoll, wenn ein Pilot für definierte Preis- und Warengruppen positiven Deckungsbeitrag und zusätzlichen, nicht nur verschobenen Umsatz belegt.</p>
 <hr />
 <h2 id="11-recht-preise-und-nachhaltigkeit">11. Recht, Preise und Nachhaltigkeit</h2>
 <h3 id="111-keine-nationale-buchpreisbindung">11.1 Keine nationale Buchpreisbindung</h3>
@@ -2998,15 +3146,7 @@
 <h3 id="113-nachhaltigkeitskontext">11.3 Nachhaltigkeitskontext</h3>
 <p>Deloitte beziffert die Zirkularitätsrate der Schweizer Wirtschaft auf <strong>6.9%</strong>; der Materialverbrauch liegt bei rund <strong>19 Tonnen pro Person</strong> gegenüber einem genannten nachhaltigen Niveau von 8 Tonnen. Rund 70% der Umweltwirkung fallen im Ausland an.</p>
 <p><strong>Quelle:</strong> <a href="https://www.deloitte.com/ch/en/services/consulting-risk/perspectives/switzerlands-route-to-circular-economy.html">Deloitte „Switzerland’s route to a circular economy“</a>.</p>
-<p>Für Bücher-Brocky ist Nachhaltigkeit ein glaubwürdiger Nutzen, darf aber nicht bei einer abstrakten CO₂-Botschaft enden. Überzeugender sind messbare eigene KPIs:</p>
-<ul>
-<li>Anzahl verkaufter Gebrauchtbücher</li>
-<li>Gewicht wiederverwendeter und recycelter Bücher</li>
-<li>Wiederverwendungsquote</li>
-<li>durchschnittliche Distanz von Abholung/Abgabe</li>
-<li>Anteil lokal weiterverkaufter Ware</li>
-<li>Ausschuss- und Recyclingweg</li>
-</ul>
+<p>Die allgemeine Zirkularitätsrate belegt den Makrokontext, misst aber nicht die konkrete Wirkung von Bücher-Brocky. Dafür wären eigene Daten zu Wiederverwendung, Recycling, Transport und Ausschuss erforderlich.</p>
 <hr />
 <h2 id="12-tam-sam-und-som--ohne-scheingenauigkeit">12. TAM, SAM und SOM – ohne Scheingenauigkeit</h2>
 <h3 id="121-was-heute-belastbar-gesagt-werden-kann">12.1 Was heute belastbar gesagt werden kann</h3>
@@ -3289,6 +3429,32 @@
 </table>
 <hr />
 <p><strong>Hinweis:</strong> Alle Ableitungen sind im Text gekennzeichnet. Prozentwerte können wegen Rundung geringfügig abweichen. Unternehmensangaben und alte Pressewerte sind vor einer Transaktion mit Originalbelegen und aktuellen Verkäuferdaten zu verifizieren.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="module-page page-view" id="page-strategie" data-page="strategie">
+    <div class="module-inner">
+      <div class="module-hero">
+        <span class="status-pill">Aus Marktanalyse abgeleitet · zu validieren</span>
+        <h1>Strategische Implikationen</h1>
+        <p>Hier liegen bewusst die Handlungsoptionen – getrennt von den Marktdaten. Es sind begründete Hypothesen, noch kein beschlossener Businessplan.</p>
+      </div>
+      <div class="module-grid">
+        <article class="module-card"><small>01 · Positionierung</small><h2>Preiswertes Lesen als Schatzsuche</h2><p>Nicht über Titelbreite oder Liefergeschwindigkeit gegen Galaxus antreten, sondern über Preis, Einzigartigkeit, lokale Nähe, Kreislauf und Fundcharakter.</p></article>
+        <article class="module-card"><small>02 · Kundenschwerpunkte</small><h2>Kern halten, neue Anlässe schaffen</h2><p>Viel-Lesende 45+ als wahrscheinlichen Kern verstehen; Familien, Reihen, Manga, YA und Sammlerware gezielt testen – nach Filiale und Kategorie.</p></article>
+        <article class="module-card"><small>03 · Warenzufluss</small><h2>Bequemlichkeit und Vertrauen</h2><p>Abgabe und Nachlässe respektvoll, transparent und planbar machen. Annahmequalität, Transportkosten, Abverkauf und Ausschuss gemeinsam steuern.</p></article>
+        <article class="module-card"><small>04 · Digitaler Pfad</small><h2>Sichtbarkeit → Reservation → selektiv online</h2><p>Zuerst lokale Findbarkeit und Neuankünfte, dann kuratierte Reservation. Versand nur für Ware und Bündel mit nachgewiesen positivem Deckungsbeitrag.</p></article>
+        <article class="module-card"><small>05 · Partner & Community</small><h2>Lokale Lesekreisläufe</h2><p>Bibliotheken, Nachlassstellen, Schulen und Kulturformate als Pilotpartner prüfen – mit klaren Qualitätsregeln statt unkontrollierter Warenübernahme.</p></article>
+        <article class="module-card"><small>06 · Steuerungsprinzip</small><h2>Hypothesen testen, dann skalieren</h2><p>Jede Initiative braucht Pilotfiliale, Zielgruppe, Kosten, Messgrösse und Stop/Go-Kriterium. Die Primärforschung liefert dafür die Ausgangsbasis.</p></article>
+      </div>
+      <article class="card card-pad" style="margin-top:20px">
+        <h3>Strategische Leitplanken aus der Analyse</h3>
+        <div class="grid-3" style="margin-top:18px">
+          <div><strong style="color:var(--teal-dark)">Wert vor Volumen</strong><p>„Gratisware“ verursacht Sortier-, Flächen-, Logistik- und Entsorgungskosten. Entscheidend ist verwertbarer Warenzufluss.</p></div>
+          <div><strong style="color:var(--teal-dark)">Digital unterstützt offline</strong><p>Die Filiale bleibt das Erlebnis; digitale Kontaktpunkte reduzieren Informations- und Suchreibung.</p></div>
+          <div><strong style="color:var(--teal-dark)">Keine Scheingenauigkeit</strong><p>Marktproxies werden nicht zu Umsatzplänen umetikettiert. Entscheidungen folgen erst nach Kunden- und Unternehmensdaten.</p></div>
+        </div>
       </article>
     </div>
   </section>
