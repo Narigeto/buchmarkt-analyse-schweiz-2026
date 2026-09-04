@@ -1138,6 +1138,29 @@
       width: min(var(--max), calc(100% - 36px));
       margin: auto;
     }
+    .draft-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 15px 18px;
+      border: 1px solid #e8bd67;
+      border-radius: 15px;
+      color: #684000;
+      background: linear-gradient(90deg, #fff1cf, #fff8e9);
+      box-shadow: 0 8px 24px rgba(139,91,12,.08);
+    }
+    .draft-banner b {
+      flex: 0 0 auto;
+      padding: 5px 8px;
+      border-radius: 8px;
+      color: #fff;
+      background: #a86600;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .draft-banner span { font-size: 14px; font-weight: 850; }
     .module-hero {
       padding: 44px;
       border-radius: 28px;
@@ -1327,6 +1350,7 @@
       .report-body h2 { font-size: 29px; }
       .report-body table { display: block; overflow-x: auto; white-space: normal; }
       .module-hero { padding: 30px 24px; }
+      .draft-banner { align-items: flex-start; flex-direction: column; gap: 8px; }
       .site-footer-inner { flex-direction: column; }
     }
 
@@ -3505,6 +3529,7 @@
 
   <section class="module-page page-view" id="page-strategie" data-page="strategie">
     <div class="module-inner">
+      <div class="draft-banner" role="status"><b>Draft</b><span>Noch im Draft-Modus – reiner Platzhalter-Inhalt.</span></div>
       <div class="module-hero">
         <span class="status-pill">Aus Marktanalyse abgeleitet · zu validieren</span>
         <h1>Strategische Implikationen</h1>
@@ -3531,6 +3556,7 @@
 
   <section class="module-page page-view" id="page-businessplan" data-page="businessplan">
     <div class="module-inner">
+      <div class="draft-banner" role="status"><b>Draft</b><span>Noch im Draft-Modus – reiner Platzhalter-Inhalt.</span></div>
       <div class="module-hero">
         <span class="status-pill">In Vorbereitung</span>
         <h1>Businessplan</h1>
@@ -3549,6 +3575,7 @@
 
   <section class="module-page page-view" id="page-ideen" data-page="ideen">
     <div class="module-inner">
+      <div class="draft-banner" role="status"><b>Draft</b><span>Noch im Draft-Modus – reiner Platzhalter-Inhalt.</span></div>
       <div class="module-hero">
         <span class="status-pill">In Vorbereitung</span>
         <h1>Ideen &amp; Wachstum</h1>
@@ -3567,6 +3594,7 @@
 
   <section class="module-page page-view" id="page-digitalisierung" data-page="digitalisierung">
     <div class="module-inner">
+      <div class="draft-banner" role="status"><b>Draft</b><span>Noch im Draft-Modus – reiner Platzhalter-Inhalt.</span></div>
       <div class="module-hero">
         <span class="status-pill">In Vorbereitung</span>
         <h1>Digitalisierung</h1>
@@ -3585,6 +3613,7 @@
 
   <section class="module-page page-view" id="page-organisation" data-page="organisation">
     <div class="module-inner">
+      <div class="draft-banner" role="status"><b>Draft</b><span>Noch im Draft-Modus – reiner Platzhalter-Inhalt.</span></div>
       <div class="module-hero">
         <span class="status-pill">In Vorbereitung</span>
         <h1>Organisation &amp; Struktur</h1>
